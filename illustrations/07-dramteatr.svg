@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="100" cy="182" rx="90" ry="11" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- основной объём: крыша и фасад -->
+    <polygon points="26,44 150,44 165.5,35 41.5,35" fill="#E6D9BD"/>
+    <rect x="26" y="44" width="124" height="122" fill="#EFC66A"/>
+    <rect x="24" y="42" width="128" height="5" fill="#FFF8EC"/>
+    <!-- высокий глухой боковой блок -->
+    <polygon points="174,166 189.5,157 189.5,17 174,26" fill="#CFA24A"/>
+    <polygon points="148,26 174,26 189.5,17 163.5,17" fill="#E6D9BD"/>
+    <rect x="148" y="26" width="26" height="140" fill="#EFC66A"/>
+    <rect x="146" y="24" width="30" height="5" fill="#FFF8EC"/>
+    <polygon points="176,24 191.5,15 191.5,20 176,29" fill="#E2D8C6"/>
+    <!-- цоколь -->
+    <rect x="124" y="159" width="50" height="7" fill="#6E6A63"/>
+    <polygon points="174,166 189.5,157 189.5,150 174,159" fill="#5A4A3A"/>
+    <!-- затенённая стена за портиком -->
+    <rect x="26" y="66" width="100" height="100" fill="#CFA24A"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- двери и окна за колоннами -->
+    <rect x="59" y="142" width="12" height="22" fill="#8C7457"/>
+    <rect x="77" y="142" width="12" height="22" fill="#8C7457"/>
+    <rect x="41" y="102" width="8" height="13" rx="1" fill="#4E6E91"/>
+    <rect x="95" y="102" width="8" height="13" rx="1" fill="#4E6E91"/>
+    <!-- надпись на боковом блоке -->
+    <line x1="153" y1="56" x2="169" y2="56" stroke-width="2"/>
+    <line x1="153" y1="61" x2="169" y2="61" stroke-width="2"/>
+    <line x1="156" y1="66" x2="166" y2="66" stroke-width="1.5"/>
+    <!-- проём за балконом -->
+    <rect x="133" y="74" width="10" height="23" fill="#34495E"/>
+  </g>
+  <rect x="44" y="103.5" width="2" height="5" fill="#A9CBEA"/>
+  <rect x="98" y="103.5" width="2" height="5" fill="#A9CBEA"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- полукруглый козырёк -->
+    <path d="M128,66 H148 Q160,66 160,70 Q160,74 148,74 H128 Z" fill="#FFF8EC"/>
+    <!-- полукруглый балкон: пол и ограждение -->
+    <path d="M126,98 H148 Q162,98 162,102.5 Q162,107 148,107 H126 Z" fill="#FFF8EC"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linecap="round" fill="none">
+    <path d="M126,87 H148 Q160,87 161,99" stroke-width="1.8"/>
+    <line x1="130" y1="87" x2="130" y2="98"/>
+    <line x1="134" y1="87" x2="134" y2="98"/>
+    <line x1="138" y1="87" x2="138" y2="98"/>
+    <line x1="142" y1="87" x2="142" y2="98"/>
+    <line x1="146" y1="87" x2="146" y2="98"/>
+    <line x1="150" y1="87.5" x2="150" y2="98"/>
+    <line x1="154" y1="88.5" x2="154" y2="98"/>
+    <line x1="158" y1="91" x2="158" y2="98"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- широкие ступени -->
+    <rect x="7" y="179" width="118" height="6" fill="#A7A39B"/>
+    <rect x="10" y="175" width="114" height="4" fill="#E6D9BD"/>
+    <rect x="13" y="171" width="110" height="4" fill="#A7A39B"/>
+    <!-- колонны портика: боковая грань и фасады -->
+    <polygon points="113,171 124,164.5 124,70 113,78" fill="#E2D8C6"/>
+    <rect x="14" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="20.5" y1="80" x2="20.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <rect x="32" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="38.5" y1="80" x2="38.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <rect x="50" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="56.5" y1="80" x2="56.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <rect x="68" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="74.5" y1="80" x2="74.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <rect x="86" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="92.5" y1="80" x2="92.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <rect x="104" y="78" width="9" height="93" fill="#FFF8EC"/>
+    <line x1="110.5" y1="80" x2="110.5" y2="169" stroke="#E2D8C6" stroke-width="2.5"/>
+    <!-- массивный плоский карниз -->
+    <rect x="14" y="73" width="99" height="5" fill="#E2D8C6"/>
+    <polygon points="113,73 125,66 125,71 113,78" fill="#D9C6A0"/>
+    <polygon points="11,60 116,60 128,53 23,53" fill="#FFF8EC"/>
+    <rect x="11" y="60" width="105" height="13" fill="#FFF8EC"/>
+    <polygon points="116,60 128,53 128,66 116,73" fill="#E2D8C6"/>
+  </g>
+  <!-- куст -->
+  <g stroke="#3B2A1A" stroke-width="1.5">
+    <circle cx="180" cy="172" r="7" fill="#5E8D4E"/>
+    <circle cx="186" cy="168" r="6" fill="#7FB069"/>
+  </g>
+</svg>

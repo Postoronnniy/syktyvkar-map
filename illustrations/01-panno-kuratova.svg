@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="96" cy="179" rx="86" ry="12" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- длинный фасад с окнами, уходит вправо -->
+    <polygon points="112,66 173,31 173,145 112,180" fill="#D9C6A0"/>
+    <polygon points="112,172 173,137 173,145 112,180" fill="#6E6A63"/>
+    <!-- плоская крыша и карниз -->
+    <polygon points="12,59 114,59 175,24 73,24" fill="#8C9DAE"/>
+    <polygon points="114,59 175,24 175,31 114,66" fill="#E2D8C6"/>
+    <!-- выход на крышу и антенна -->
+    <polygon points="112,46 120,41.5 120,33.5 112,38" fill="#E2D8C6"/>
+    <rect x="98" y="38" width="14" height="8" fill="#FFF8EC"/>
+    <polygon points="98,38 112,38 120,33.5 106,33.5" fill="#E6D9BD"/>
+    <line x1="138" y1="40" x2="138" y2="24" stroke-width="1.2"/>
+    <line x1="133" y1="26" x2="143" y2="26" stroke-width="1.2"/>
+    <line x1="134.5" y1="30" x2="141.5" y2="30" stroke-width="1.2"/>
+    <!-- глухой торец с мозаикой -->
+    <rect x="14" y="66" width="98" height="114" fill="#9A968F"/>
+    <rect x="14" y="172" width="98" height="8" fill="#85817A"/>
+    <rect x="12" y="59" width="102" height="7" fill="#FFF8EC"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" fill="#4E6E91">
+    <polygon points="116.5,164.5 122,161.5 122,151.5 116.5,154.5"/>
+    <polygon points="126,159 131.5,156 131.5,146 126,149"/>
+    <polygon points="135.5,153.5 141,150.5 141,140.5 135.5,143.5"/>
+    <polygon points="145,148 150.5,145 150.5,135 145,138"/>
+    <polygon points="154.5,142.5 160,139.5 160,129.5 154.5,132.5"/>
+    <polygon points="164,137 169.5,134 169.5,124 164,127"/>
+    <polygon points="116.5,143.5 122,140.5 122,130.5 116.5,133.5"/>
+    <polygon points="126,138 131.5,135 131.5,125 126,128"/>
+    <polygon points="135.5,132.5 141,129.5 141,119.5 135.5,122.5"/>
+    <polygon points="145,127 150.5,124 150.5,114 145,117"/>
+    <polygon points="154.5,121.5 160,118.5 160,108.5 154.5,111.5"/>
+    <polygon points="164,116 169.5,113 169.5,103 164,106"/>
+    <polygon points="116.5,122.5 122,119.5 122,109.5 116.5,112.5"/>
+    <polygon points="126,117 131.5,114 131.5,104 126,107"/>
+    <polygon points="135.5,111.5 141,108.5 141,98.5 135.5,101.5"/>
+    <polygon points="145,106 150.5,103 150.5,93 145,96"/>
+    <polygon points="154.5,100.5 160,97.5 160,87.5 154.5,90.5"/>
+    <polygon points="164,95 169.5,92 169.5,82 164,85"/>
+    <polygon points="116.5,101 122,98 122,88 116.5,91"/>
+    <polygon points="126,95.5 131.5,92.5 131.5,82.5 126,85.5"/>
+    <polygon points="135.5,90 141,87 141,77 135.5,80"/>
+    <polygon points="145,84.5 150.5,81.5 150.5,71.5 145,74.5"/>
+    <polygon points="154.5,79 160,76 160,66 154.5,69"/>
+    <polygon points="164,73.5 169.5,70.5 169.5,60.5 164,63.5"/>
+    <polygon points="116.5,80 122,77 122,67 116.5,70"/>
+    <polygon points="126,74.5 131.5,71.5 131.5,61.5 126,64.5"/>
+    <polygon points="135.5,69 141,66 141,56 135.5,59"/>
+    <polygon points="145,63.5 150.5,60.5 150.5,50.5 145,53.5"/>
+    <polygon points="154.5,58 160,55 160,45 154.5,48"/>
+    <polygon points="164,52.5 169.5,49.5 169.5,39.5 164,42.5"/>
+  </g>
+  <g fill="#A9CBEA">
+    <polygon points="118,160.5 119.5,159.5 119.5,155.5 118,156.5"/>
+    <polygon points="127.5,155 129,154 129,150 127.5,151"/>
+    <polygon points="137,149.5 138.5,148.5 138.5,144.5 137,145.5"/>
+    <polygon points="146.5,144 148,143 148,139 146.5,140"/>
+    <polygon points="156,138.5 157.5,137.5 157.5,133.5 156,134.5"/>
+    <polygon points="165.5,133 167,132 167,128 165.5,129"/>
+    <polygon points="118,139.5 119.5,138.5 119.5,134.5 118,135.5"/>
+    <polygon points="127.5,134 129,133 129,129 127.5,130"/>
+    <polygon points="137,128.5 138.5,127.5 138.5,123.5 137,124.5"/>
+    <polygon points="146.5,123 148,122 148,118 146.5,119"/>
+    <polygon points="156,117.5 157.5,116.5 157.5,112.5 156,113.5"/>
+    <polygon points="165.5,112 167,111 167,107 165.5,108"/>
+    <polygon points="118,118.5 119.5,117.5 119.5,113.5 118,114.5"/>
+    <polygon points="127.5,113 129,112 129,108 127.5,109"/>
+    <polygon points="137,107.5 138.5,106.5 138.5,102.5 137,103.5"/>
+    <polygon points="146.5,102 148,101 148,97 146.5,98"/>
+    <polygon points="156,96.5 157.5,95.5 157.5,91.5 156,92.5"/>
+    <polygon points="165.5,91 167,90 167,86 165.5,87"/>
+    <polygon points="118,97 119.5,96 119.5,92 118,93"/>
+    <polygon points="127.5,91.5 129,90.5 129,86.5 127.5,87.5"/>
+    <polygon points="137,86 138.5,85 138.5,81 137,82"/>
+    <polygon points="146.5,80.5 148,79.5 148,75.5 146.5,76.5"/>
+    <polygon points="156,75 157.5,74 157.5,70 156,71"/>
+    <polygon points="165.5,69.5 167,68.5 167,64.5 165.5,65.5"/>
+    <polygon points="118,76 119.5,75 119.5,71 118,72"/>
+    <polygon points="127.5,70.5 129,69.5 129,65.5 127.5,66.5"/>
+    <polygon points="137,65 138.5,64 138.5,60 137,61"/>
+    <polygon points="146.5,59.5 148,58.5 148,54.5 146.5,55.5"/>
+    <polygon points="156,54 157.5,53 157.5,49 156,50"/>
+    <polygon points="165.5,48.5 167,47.5 167,43.5 165.5,44.5"/>
+  </g>
+  <!-- галечная фактура и сетка панелей -->
+  <g fill="#7E7A73"><circle cx="47" cy="84" r="0.9"/><circle cx="77" cy="76" r="0.9"/><circle cx="66.5" cy="105.5" r="0.9"/><circle cx="22.5" cy="119.5" r="0.9"/><circle cx="20.5" cy="112.5" r="0.9"/><circle cx="23.5" cy="78" r="0.9"/><circle cx="56" cy="151.5" r="0.9"/><circle cx="28.5" cy="91.5" r="0.9"/><circle cx="74.5" cy="164" r="0.9"/><circle cx="70" cy="108.5" r="0.9"/><circle cx="107" cy="73.5" r="0.9"/><circle cx="96" cy="98" r="0.9"/><circle cx="30.5" cy="81" r="0.9"/><circle cx="45.5" cy="150.5" r="0.9"/><circle cx="33.5" cy="127" r="0.9"/><circle cx="76" cy="106" r="0.9"/><circle cx="67.5" cy="75.5" r="0.9"/><circle cx="22.5" cy="89.5" r="0.9"/><circle cx="79.5" cy="112" r="0.9"/><circle cx="46" cy="127.5" r="0.9"/><circle cx="58.5" cy="99" r="0.9"/><circle cx="90" cy="139" r="0.9"/><circle cx="39.5" cy="126.5" r="0.9"/><circle cx="65.5" cy="156.5" r="0.9"/><circle cx="84" cy="98" r="0.9"/><circle cx="107" cy="81" r="0.9"/><circle cx="55.5" cy="144.5" r="0.9"/><circle cx="31" cy="118" r="0.9"/><circle cx="20.5" cy="136" r="0.9"/><circle cx="87.5" cy="126.5" r="0.9"/><circle cx="97.5" cy="100.5" r="0.9"/><circle cx="81" cy="128.5" r="0.9"/><circle cx="70.5" cy="114.5" r="0.9"/><circle cx="94.5" cy="163.5" r="0.9"/><circle cx="60.5" cy="135.5" r="0.9"/><circle cx="22.5" cy="139" r="0.9"/><circle cx="76.5" cy="168.5" r="0.9"/><circle cx="92.5" cy="97.5" r="0.9"/><circle cx="52.5" cy="136" r="0.9"/><circle cx="19" cy="115" r="0.9"/><circle cx="32.5" cy="80.5" r="0.9"/><circle cx="22.5" cy="146" r="0.9"/><circle cx="29" cy="94" r="0.9"/><circle cx="53" cy="156" r="0.9"/><circle cx="24.5" cy="114" r="0.9"/><circle cx="67.5" cy="157.5" r="0.9"/></g>
+  <g stroke="#F4E6C8" stroke-width="1.6" stroke-linecap="round">
+    <line x1="38.5" y1="67" x2="38.5" y2="171"/>
+    <line x1="63" y1="67" x2="63" y2="171"/>
+    <line x1="87.5" y1="67" x2="87.5" y2="171"/>
+    <line x1="15" y1="92.5" x2="111" y2="92.5"/>
+    <line x1="15" y1="119" x2="111" y2="119"/>
+    <line x1="15" y1="145.5" x2="111" y2="145.5"/>
+  </g>
+  <!-- солнце -->
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" fill="#F4E6C8">
+    <path d="M38.5,92.5 A12,12 0 0 1 62.5,92.5 Z"/>
+    <polygon points="34,90 27,88.5 34,86"/>
+    <polygon points="36.5,82 30.5,77.5 38.5,79.5"/>
+    <polygon points="42.5,76.5 40.5,69.5 46,75"/>
+    <polygon points="50.5,74.5 50.5,67.5 53,74.5"/>
+    <polygon points="57.5,75 60.5,69.5 61,76.5"/>
+    <polygon points="64.5,79.5 70.5,77.5 66.5,82"/>
+  </g>
+  <!-- олень -->
+  <g transform="translate(17.5,103) scale(1.12)" stroke-linejoin="round" stroke-linecap="round">
+    <g fill="none" stroke="#3B2A1A" stroke-width="4.6">
+      <path d="M34.5,11 C33,6 30,3.5 25.5,2 M30,5 L30.5,0 M33,8 L37.5,4.5 M37.5,10.5 C38.5,6 41,3 44.5,2 M40,5.5 L43.5,6.5"/>
+    </g>
+    <g fill="none" stroke="#C65A3E" stroke-width="2.2">
+      <path d="M34.5,11 C33,6 30,3.5 25.5,2 M30,5 L30.5,0 M33,8 L37.5,4.5 M37.5,10.5 C38.5,6 41,3 44.5,2 M40,5.5 L43.5,6.5"/>
+    </g>
+    <path d="M3,21 C3,20 6,19.5 9,19.5 L29,19 L34,11 L37,10 L44,14.5 L43.5,18 L37,17.5 L35,25 L35.5,31 L40,44.5 L37,45.5 L31.5,35.5 L29.5,35.5 L28.5,46 L25.5,46 L25.5,35.5 L13,35.5 L10,46 L7,46 L8.5,35 L6,33 L1.5,43 L-1,41.5 L2,30 Z" fill="#C65A3E" stroke="#3B2A1A" stroke-width="1.2"/>
+  </g>
+  <!-- оленевод с хореем -->
+  <g transform="translate(67.5,88) scale(1.12)" stroke="#3B2A1A" stroke-linejoin="round" stroke-linecap="round">
+    <g fill="#C65A3E" stroke-width="1.2">
+      <path d="M12.5,45 L12,57 L9.5,60 L18.5,60 L18,45 Z"/>
+      <path d="M24,45 L24,60 L33,60 L30.5,57 L30,45 Z"/>
+      <path d="M14.5,15 Q21,12.5 28,15 L35,45 Q21.5,48.5 8,45 Z"/>
+    </g>
+    <line x1="11.5" y1="32" x2="31.5" y2="32" stroke="#F4E6C8" stroke-width="2.4"/>
+    <line x1="9" y1="-3" x2="1" y2="61" stroke-width="4.4"/>
+    <line x1="9" y1="-3" x2="1" y2="61" stroke="#C65A3E" stroke-width="2.2"/>
+    <line x1="16" y1="19" x2="5.5" y2="27" stroke-width="7"/>
+    <line x1="16" y1="19" x2="5.5" y2="27" stroke="#C65A3E" stroke-width="4.6"/>
+    <circle cx="21" cy="8" r="7.5" fill="#C65A3E" stroke-width="1.2"/>
+    <circle cx="19" cy="9" r="4" fill="#F4E6C8" stroke-width="1.2"/>
+  </g>
+  <!-- кусты -->
+  <g stroke="#3B2A1A" stroke-width="1.5">
+    <circle cx="16" cy="175" r="6.5" fill="#5E8D4E"/>
+    <circle cx="23" cy="172" r="7.5" fill="#7FB069"/>
+    <circle cx="178" cy="143" r="6.5" fill="#5E8D4E"/>
+  </g>
+</svg>

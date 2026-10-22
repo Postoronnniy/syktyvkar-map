@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="100" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- ели за памятником -->
+    <rect x="27" y="108" width="6" height="12" fill="#8C7457"/>
+    <polygon points="30,56 9,112 30,112" fill="#5E8D4E"/>
+    <polygon points="30,56 30,112 52,112" fill="#4A7340"/>
+    <polygon points="30,32 12,80 30,80" fill="#5E8D4E"/>
+    <polygon points="30,32 30,80 48,80" fill="#4A7340"/>
+    <polygon points="30,9 16,52 30,52" fill="#5E8D4E"/>
+    <polygon points="30,9 30,52 44,52" fill="#4A7340"/>
+    <rect x="167" y="108" width="6" height="12" fill="#8C7457"/>
+    <polygon points="170,56 148,112 170,112" fill="#5E8D4E"/>
+    <polygon points="170,56 170,112 191,112" fill="#4A7340"/>
+    <polygon points="170,32 152,80 170,80" fill="#5E8D4E"/>
+    <polygon points="170,32 170,80 188,80" fill="#4A7340"/>
+    <polygon points="170,9 156,52 170,52" fill="#5E8D4E"/>
+    <polygon points="170,9 170,52 184,52" fill="#4A7340"/>
+    <!-- мощёная площадка -->
+    <ellipse cx="100" cy="160" rx="88" ry="22" fill="#E6D9BD"/>
+    <ellipse cx="100" cy="160" rx="50" ry="13" fill="#CDBF9F" stroke-width="1.5"/>
+    <!-- гранитный постамент -->
+    <polygon points="44,121 156,121 166.5,115 54.5,115" fill="#85817A"/>
+    <polygon points="156,121 166.5,115 166.5,133 156,139" fill="#57534D"/>
+    <rect x="44" y="121" width="112" height="18" fill="#6E6A63"/>
+  </g>
+  <!-- три бронзовые фигуры матерей -->
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <g transform="translate(67,119)">
+      <path d="M-8,-73 Q-13,-72 -14,-60 L-17,-3 Q-17,0 -14,0 H14 Q17,0 17,-3 L14,-60 Q13,-72 8,-73 Z" fill="#5A4A3A"/>
+      <path d="M-8,-70.5 Q-11,-69.5 -12,-60 L-15,-4 H-11 L-8.5,-60 Z" fill="#8C7457" stroke="none"/>
+      <path d="M-4,-50 L-6,-4 M5,-50 L7,-4" fill="none" stroke-width="1.2"/>
+      <circle cx="0" cy="-81" r="7.5" fill="#8C7457"/>
+      <path d="M-7.5,-79 Q-9,-89.5 0,-89.5 Q9,-89.5 7.5,-79 Q6.5,-84.5 0,-85 Q-6.5,-84.5 -7.5,-79 Z" fill="#4A3C2F" stroke-width="1.2"/>
+    </g>
+    <g transform="translate(133,119)">
+      <path d="M-8,-73 Q-13,-72 -14,-60 L-17,-3 Q-17,0 -14,0 H14 Q17,0 17,-3 L14,-60 Q13,-72 8,-73 Z" fill="#5A4A3A"/>
+      <path d="M-8,-70.5 Q-11,-69.5 -12,-60 L-15,-4 H-11 L-8.5,-60 Z" fill="#8C7457" stroke="none"/>
+      <path d="M-4,-36 L-6,-4 M5,-36 L7,-4" fill="none" stroke-width="1.2"/>
+      <path d="M-8.5,-73 Q-14,-72 -15,-58 L-15,-46 L0,-37 L15,-46 L15,-58 Q14,-72 8.5,-73 Z" fill="#6B5844" stroke-width="1.5"/>
+      <circle cx="0" cy="-81" r="7.5" fill="#8C7457"/>
+      <path d="M-7.5,-79 Q-9,-89.5 0,-89.5 Q9,-89.5 7.5,-79 Q6.5,-84.5 0,-85 Q-6.5,-84.5 -7.5,-79 Z" fill="#4A3C2F" stroke-width="1.2"/>
+    </g>
+    <g transform="translate(100,122)">
+      <path d="M-10.5,-77 Q-13,-99 0,-99 Q13,-99 10.5,-77 Z" fill="#4A3C2F"/>
+      <path d="M-9,-77 Q-14,-76 -15,-63 L-18,-3 Q-18,0 -15,0 H15 Q18,0 18,-3 L15,-63 Q14,-76 9,-77 Z" fill="#5A4A3A"/>
+      <path d="M-9,-74.5 Q-12,-73.5 -13,-63 L-16,-4 H-12 L-9.5,-63 Z" fill="#8C7457" stroke="none"/>
+      <path d="M-4,-52 L-5,-4 M5,-52 L6,-4" fill="none" stroke-width="1.2"/>
+      <circle cx="0" cy="-85" r="7.5" fill="#8C7457"/>
+      <path d="M-7.5,-83 Q-9,-93.5 0,-93.5 Q9,-93.5 7.5,-83 Q6.5,-88.5 0,-89 Q-6.5,-88.5 -7.5,-83 Z" fill="#4A3C2F" stroke-width="1.2"/>
+    </g>
+    <!-- протянутые вперёд руки -->
+    <g stroke-width="1.5">
+      <rect x="45" y="60.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <rect x="63" y="59.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <rect x="81" y="60.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <rect x="97" y="59.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <rect x="115" y="60.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <rect x="133" y="59.5" width="22" height="7.5" rx="3.5" fill="#8C7457"/>
+      <path d="M46,60.5 Q38,59 37,63.5 Q38,67 46,67.5 Z" fill="#8C7457"/>
+      <path d="M154,59.5 Q162,58 163,62.5 Q162,66 154,66.5 Z" fill="#8C7457"/>
+    </g>
+  </g>
+  <!-- звезда, чаша и Вечный огонь -->
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="100,149 107.5,156 129.5,156.5 112.5,161.5 118,169 100,164.5 82,169 87.5,161.5 70.5,156.5 92.5,156" fill="#6E6A63"/>
+    <path d="M82,154 Q84,163 100,163 Q116,163 118,154 Z" fill="#5A4A3A"/>
+    <ellipse cx="100" cy="154" rx="18" ry="4.5" fill="#8C7457"/>
+    <path d="M100,155 C84,155 81.5,140.5 88,129.5 C89,135.5 91.5,138 94,138 C90,125.5 96.5,114.5 105,105 C103.5,114.5 108.5,121 111,127 C113.5,124.5 114.5,121 114.5,121 C123,133 118.5,155 100,155 Z" fill="#E8632B"/>
+    <path d="M100,154 C91.5,154 90,144 95,136.5 C96.5,140.5 99,141.5 100,141.5 C100,134.5 102.5,128 106,123.5 C106,130.5 111,135.5 111,141.5 C112,149 107.5,154 100,154 Z" fill="#F6B135" stroke-width="1.2"/>
+  </g>
+</svg>

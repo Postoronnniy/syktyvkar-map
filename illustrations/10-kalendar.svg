@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="100" cy="182" rx="88" ry="10" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- мощение из каменных плит -->
+    <ellipse cx="100" cy="170" rx="90" ry="15" fill="#E6D9BD"/>
+  </g>
+  <g fill="none" stroke="#CDBF9F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30,176 L46,172 L62,178 M74,180 L84,174 L100,177 L112,173 M124,179 L138,174 L152,177 L168,172"/>
+    <path d="M46,172 L48,162 M84,174 L82,164 M112,173 L116,163 M138,174 L136,164"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- металлическая рама: стойки и перекладины -->
+    <rect x="21" y="30" width="6" height="142" fill="#8C9DAE"/>
+    <rect x="173" y="30" width="6" height="142" fill="#8C9DAE"/>
+    <rect x="41" y="30" width="6" height="142" fill="#8C9DAE"/>
+    <rect x="153" y="30" width="6" height="142" fill="#8C9DAE"/>
+    <rect x="16" y="39" width="168" height="5" fill="#8C9DAE"/>
+    <rect x="16" y="147" width="168" height="5" fill="#8C9DAE"/>
+    <!-- бронзовое кольцо календаря: толщина и лицевая сторона -->
+    <g transform="translate(3.5,-2)">
+      <path d="M52,102 A48,48 0 1,0 148,102 A48,48 0 1,0 52,102 Z M75,102 A25,25 0 1,1 125,102 A25,25 0 1,1 75,102 Z" fill="#45382B"/>
+    </g>
+    <path d="M52,102 A48,48 0 1,0 148,102 A48,48 0 1,0 52,102 Z M75,102 A25,25 0 1,1 125,102 A25,25 0 1,1 75,102 Z" fill="#5A4A3A"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+    <!-- светлые выпуклые ободки -->
+    <path d="M52,102 A48,48 0 1,0 148,102 A48,48 0 1,0 52,102 Z M56.5,102 A43.5,43.5 0 1,1 143.5,102 A43.5,43.5 0 1,1 56.5,102 Z" fill="#8C7457" stroke="none"/>
+    <path d="M75,102 A25,25 0 1,0 125,102 A25,25 0 1,0 75,102 Z M70.5,102 A29.5,29.5 0 1,1 129.5,102 A29.5,29.5 0 1,1 70.5,102 Z" fill="#8C7457" stroke="none"/>
+    <circle cx="100" cy="102" r="43.5" fill="none"/>
+    <circle cx="100" cy="102" r="29.5" fill="none"/>
+  </g>
+  <g fill="none" stroke="#3B2A1A" stroke-width="1.2" stroke-linecap="round">
+    <path d="M143,107.5 L147.5,108.5 M140,118.5 L144.5,120.5 M134.5,128.5 L138,131 M126.5,136.5 L129,140 M116.5,142 L118.5,146.5 M105.5,145 L106.5,149.5 M94.5,145 L93.5,149.5 M83.5,142 L81.5,146.5 M73.5,136.5 L71,140 M65.5,128.5 L62,131 M60,118.5 L55.5,120.5 M57,107.5 L52.5,108.5 M57,96.5 L52.5,95.5 M60,85.5 L55.5,83.5 M65.5,75.5 L62,73 M73.5,67.5 L71,64 M83.5,62 L81.5,57.5 M94.5,59 L93.5,54.5 M105.5,59 L106.5,54.5 M116.5,62 L118.5,57.5 M126.5,67.5 L129,64 M134.5,75.5 L138,73 M140,85.5 L144.5,83.5 M143,96.5 L147.5,95.5"/>
+  </g>
+  <!-- рельефные знаки: рыбы, птицы, солнце -->
+  <g fill="#8C7457">
+    <g transform="translate(100,65.5)"><path d="M-5,0 Q0,-3 4,0 Q0,3 -5,0 Z M3.5,0 L7,-3 L7,3 Z"/></g>
+    <g transform="translate(121.5,72.5) rotate(36)"><path d="M-5.5,-1 Q-2.5,-4 0,0 Q2.5,-4 5.5,-1 Q2.5,-1.5 0,2.5 Q-2.5,-1.5 -5.5,-1 Z"/></g>
+    <g transform="translate(134.5,90.5)"><circle r="3"/></g>
+    <g transform="translate(134.5,113.5) rotate(108)"><path d="M-5,0 Q0,-3 4,0 Q0,3 -5,0 Z M3.5,0 L7,-3 L7,3 Z"/></g>
+    <g transform="translate(121.5,131.5) rotate(144)"><path d="M-5.5,-1 Q-2.5,-4 0,0 Q2.5,-4 5.5,-1 Q2.5,-1.5 0,2.5 Q-2.5,-1.5 -5.5,-1 Z"/></g>
+    <g transform="translate(100,138.5)"><circle r="3"/></g>
+    <g transform="translate(78.5,131.5) rotate(216)"><path d="M-5,0 Q0,-3 4,0 Q0,3 -5,0 Z M3.5,0 L7,-3 L7,3 Z"/></g>
+    <g transform="translate(65.5,113.5) rotate(252)"><path d="M-5.5,-1 Q-2.5,-4 0,0 Q2.5,-4 5.5,-1 Q2.5,-1.5 0,2.5 Q-2.5,-1.5 -5.5,-1 Z"/></g>
+    <g transform="translate(65.5,90.5)"><circle r="3"/></g>
+    <g transform="translate(78.5,72.5) rotate(324)"><path d="M-5,0 Q0,-3 4,0 Q0,3 -5,0 Z M3.5,0 L7,-3 L7,3 Z"/></g>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- боковые доски с текстом -->
+    <polygon points="12,40 36,40 40,37.5 16,37.5" fill="#ECAE62"/>
+    <polygon points="36,40 40,37.5 40,161.5 36,164" fill="#B5732B"/>
+    <rect x="12" y="40" width="24" height="124" fill="#D98E3B"/>
+    <polygon points="162,40 186,40 190,37.5 166,37.5" fill="#ECAE62"/>
+    <polygon points="186,40 190,37.5 190,161.5 186,164" fill="#B5732B"/>
+    <rect x="162" y="40" width="24" height="124" fill="#D98E3B"/>
+    <!-- верхняя доска с названием -->
+    <polygon points="10,12 186,12 190,9.5 14,9.5" fill="#ECAE62"/>
+    <polygon points="186,12 190,9.5 190,31.5 186,34" fill="#B5732B"/>
+    <rect x="10" y="12" width="176" height="22" fill="#D98E3B"/>
+  </g>
+  <!-- строки текста -->
+  <g fill="none" stroke="#FFF3D9" stroke-width="1.5" stroke-linecap="round">
+    <path d="M22,19 H42 M46,19 H60 M64,19 H96 M100,19 H130 M134,19 H156 M160,19 H176"/>
+    <path d="M38,27 H52 M56,27 H74 M78,27 H112 M116,27 H140 M144,27 H160"/>
+    <path d="M17,47 H31 M19,51 H29 M17,58 H31 M19,62 H29 M17,69 H31 M19,73 H29 M17,80 H31 M19,84 H29 M17,91 H31 M19,95 H29"/>
+    <path d="M16.5,104 H31.5 M16.5,109 H29 M16.5,114 H31.5 M16.5,119 H30 M16.5,124 H31.5 M16.5,129 H27 M16.5,134 H31.5 M16.5,139 H30 M16.5,144 H31.5 M16.5,149 H28 M16.5,154 H31.5"/>
+    <path d="M167,47 H181 M169,51 H179 M167,58 H181 M169,62 H179 M167,69 H181 M169,73 H179"/>
+    <path d="M166.5,82 H181.5 M166.5,87 H179 M166.5,92 H181.5 M166.5,97 H180 M166.5,102 H181.5 M166.5,107 H177 M166.5,112 H181.5 M166.5,117 H180 M166.5,122 H181.5 M166.5,127 H178 M166.5,132 H181.5 M166.5,137 H179 M166.5,142 H181.5 M166.5,147 H176 M166.5,152 H181.5"/>
+  </g>
+</svg>

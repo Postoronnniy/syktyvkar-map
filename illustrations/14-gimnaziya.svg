@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<ellipse cx="100" cy="182" rx="88" ry="11" fill="#3B2A1A" opacity="0.18"/>
+<!-- деревья за левым крылом -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="22" cy="90" r="11" fill="#5E8D4E"/>
+<circle cx="50" cy="91" r="10" fill="#5E8D4E"/>
+<circle cx="36" cy="82" r="14" fill="#7FB069"/>
+<path d="M27,83 Q29,74 36,72" fill="none" stroke="#5E8D4E" stroke-width="1.5"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- крыши крыльев -->
+<polygon points="12,108 66,108 83.5,96 29.5,96" fill="#8C9DAE"/>
+<polygon points="134,108 171,108 188.5,96 151.5,96" fill="#8C9DAE"/>
+<polygon points="171,108 188.5,96 188.5,98 171,110" fill="#6D7F92"/>
+<!-- трубы -->
+<rect x="38" y="90" width="6" height="9" fill="#EFC66A"/>
+<rect x="162" y="90" width="6" height="9" fill="#EFC66A"/>
+<!-- левое крыло -->
+<rect x="14" y="110" width="52" height="68" fill="#EFC66A"/>
+<!-- правое крыло и его торец -->
+<polygon points="169,178 186.5,168 186.5,100 169,110" fill="#CFA24A"/>
+<rect x="134" y="110" width="35" height="68" fill="#EFC66A"/>
+<!-- карнизы и цоколь -->
+<rect x="12" y="106" width="54" height="5" fill="#FFF8EC"/>
+<rect x="134" y="106" width="37" height="5" fill="#FFF8EC"/>
+<polygon points="171,106 188.5,96 188.5,101 171,111" fill="#E2D8C6"/>
+<rect x="14" y="171" width="52" height="7" fill="#FFF8EC"/>
+<rect x="134" y="171" width="35" height="7" fill="#FFF8EC"/>
+<polygon points="169,178 186.5,168 186.5,161 169,171" fill="#E2D8C6"/>
+<rect x="14" y="110" width="5" height="61" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+<!-- окна крыльев в белых наличниках -->
+<rect x="24" y="118" width="11" height="20" fill="#FFF8EC"/>
+<rect x="26" y="120" width="7" height="16" fill="#4E6E91"/>
+<rect x="23" y="114.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="24" y="146" width="11" height="20" fill="#FFF8EC"/>
+<rect x="26" y="148" width="7" height="16" fill="#4E6E91"/>
+<rect x="23" y="142.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="38" y="118" width="11" height="20" fill="#FFF8EC"/>
+<rect x="40" y="120" width="7" height="16" fill="#4E6E91"/>
+<rect x="37" y="114.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="38" y="146" width="11" height="20" fill="#FFF8EC"/>
+<rect x="40" y="148" width="7" height="16" fill="#4E6E91"/>
+<rect x="37" y="142.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="52" y="118" width="11" height="20" fill="#FFF8EC"/>
+<rect x="54" y="120" width="7" height="16" fill="#4E6E91"/>
+<rect x="51" y="114.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="52" y="146" width="11" height="20" fill="#FFF8EC"/>
+<rect x="54" y="148" width="7" height="16" fill="#4E6E91"/>
+<rect x="51" y="142.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="141" y="118" width="11" height="20" fill="#FFF8EC"/>
+<rect x="143" y="120" width="7" height="16" fill="#4E6E91"/>
+<rect x="140" y="114.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="141" y="146" width="11" height="20" fill="#FFF8EC"/>
+<rect x="143" y="148" width="7" height="16" fill="#4E6E91"/>
+<rect x="140" y="142.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="155" y="118" width="11" height="20" fill="#FFF8EC"/>
+<rect x="157" y="120" width="7" height="16" fill="#4E6E91"/>
+<rect x="154" y="114.5" width="13" height="3.5" fill="#FFF8EC"/>
+<rect x="155" y="146" width="11" height="20" fill="#FFF8EC"/>
+<rect x="157" y="148" width="7" height="16" fill="#4E6E91"/>
+<rect x="154" y="142.5" width="13" height="3.5" fill="#FFF8EC"/>
+<polygon points="175,137 181,133.5 181,117.5 175,121" fill="#4E6E91"/>
+<polygon points="175,165 181,161.5 181,145.5 175,149" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- скруглённый угловой объём: кровля -->
+<path d="M61,77 Q100,87 139,77 Q100,53 61,77 Z" fill="#8C9DAE"/>
+<!-- стена ротонды -->
+<path d="M64,80 Q100,90 136,80 L136,178 Q100,188 64,178 Z" fill="#EFC66A"/>
+<path d="M126,82.5 Q131,81.5 136,80 L136,178 Q131,179.5 126,180.5 Z" fill="#CFA24A"/>
+<!-- тень в лоджиях -->
+<path d="M66,106.5 Q100,115.5 134,106.5 L134,134.5 Q100,143.5 66,134.5 Z" fill="#CFA24A"/>
+<path d="M66,140.5 Q100,149.5 134,140.5 L134,172.5 Q100,181.5 66,172.5 Z" fill="#CFA24A"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+<!-- двери и окна в глубине -->
+<path d="M93,176.5 V152 Q100,145 107,152 V176.5 Z" fill="#8C7457"/>
+<line x1="100" y1="150" x2="100" y2="176.5"/>
+<rect x="83" y="116" width="6" height="17" fill="#4E6E91"/>
+<rect x="111" y="116.5" width="6" height="17" fill="#4E6E91"/>
+<rect x="97" y="117" width="6" height="17" fill="#4E6E91"/>
+<rect x="72" y="87.5" width="6" height="11" fill="#4E6E91"/>
+<rect x="86" y="89.5" width="6" height="11" fill="#4E6E91"/>
+<rect x="108" y="89.5" width="6" height="11" fill="#4E6E91"/>
+<rect x="121" y="88" width="6" height="11" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- колонны первого и второго ярусов -->
+<rect x="67" y="141" width="3.5" height="32" fill="#FFF8EC"/>
+<rect x="74" y="143" width="6" height="32" fill="#FFF8EC"/>
+<rect x="88" y="144.5" width="7.5" height="32" fill="#FFF8EC"/>
+<rect x="105" y="144.5" width="7.5" height="32" fill="#FFF8EC"/>
+<rect x="120" y="143" width="6" height="32" fill="#FFF8EC"/>
+<rect x="129.5" y="141" width="3.5" height="32" fill="#FFF8EC"/>
+<rect x="67" y="107" width="3.5" height="28" fill="#FFF8EC"/>
+<rect x="74.5" y="109" width="5.5" height="28" fill="#FFF8EC"/>
+<rect x="88.5" y="110.5" width="6.5" height="28" fill="#FFF8EC"/>
+<rect x="105.5" y="110.5" width="6.5" height="28" fill="#FFF8EC"/>
+<rect x="120.5" y="109" width="5.5" height="28" fill="#FFF8EC"/>
+<rect x="129.5" y="107" width="3.5" height="28" fill="#FFF8EC"/>
+<!-- антаблементы, карниз и цоколь -->
+<path d="M62,133.5 Q100,144.5 138,133.5 L138,139.5 Q100,150.5 62,139.5 Z" fill="#FFF8EC"/>
+<path d="M62,99.5 Q100,110.5 138,99.5 L138,105.5 Q100,116.5 62,105.5 Z" fill="#FFF8EC"/>
+<path d="M61,76 Q100,88 139,76 L139,81 Q100,93 61,81 Z" fill="#FFF8EC"/>
+<path d="M63,171.5 Q100,182.5 137,171.5 L137,177.5 Q100,188.5 63,177.5 Z" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- крыльцо -->
+<path d="M86,181 Q100,187 114,181 L116,186 Q100,192 84,186 Z" fill="#A7A39B"/>
+</g>
+</svg>

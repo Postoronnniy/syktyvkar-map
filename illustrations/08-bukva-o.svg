@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="100" cy="182" rx="86" ry="11" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- мощёный пятачок -->
+    <ellipse cx="102" cy="162" rx="88" ry="21" fill="#E6D9BD"/>
+  </g>
+  <g fill="none" stroke="#CDBF9F" stroke-width="1.5" stroke-linecap="round">
+    <path d="M30,171 Q100,190 174,171"/>
+    <line x1="64" y1="168" x2="58" y2="180"/>
+    <line x1="100" y1="168" x2="100" y2="181"/>
+    <line x1="140" y1="168" x2="146" y2="180"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- низкий каменный цоколь -->
+    <polygon points="38,148 156,148 173.5,138 55.5,138" fill="#C4C0B8"/>
+    <polygon points="156,148 173.5,138 173.5,154 156,164" fill="#85817A"/>
+    <rect x="38" y="148" width="118" height="16" fill="#A7A39B"/>
+    <!-- грубо отёсанная гранитная глыба: торец, верх, лицевая грань -->
+    <polygon points="138,30 146,41 142,64 147,90 143,114 147,130 145,145 155.5,139 157.5,124 153.5,108 157.5,84 152.5,58 156.5,35 148.5,24" fill="#9C877E"/>
+    <polygon points="49,32 56,19 67,13 79,15 91,10 103,15 115,17 126,24 138,30 148.5,24 136.5,18 125.5,11 113.5,10 101.5,8 90,7.5 77.5,9.5 65.5,8 59,12" fill="#D6C6BD"/>
+    <polygon points="53,145 48,124 51,100 47,76 51,52 49,32 56,19 67,13 79,15 91,10 103,15 115,17 126,24 138,30 146,41 142,64 147,90 143,114 147,130 145,145" fill="#BFAAA0"/>
+  </g>
+  <!-- зерно гранита -->
+  <g fill="#9C877E">
+    <circle cx="60" cy="38" r="1.5"/>
+    <circle cx="62" cy="64" r="1"/>
+    <circle cx="58" cy="92" r="1.5"/>
+    <circle cx="62" cy="126" r="1.2"/>
+    <circle cx="80" cy="140" r="1.5"/>
+    <circle cx="118" cy="140" r="1"/>
+    <circle cx="136" cy="128" r="1.5"/>
+    <circle cx="136" cy="76" r="1.2"/>
+    <circle cx="128" cy="40" r="1.5"/>
+    <circle cx="74" cy="24" r="1.2"/>
+    <circle cx="150" cy="64" r="1"/>
+    <circle cx="151" cy="120" r="1.2"/>
+  </g>
+  <g fill="#E3D5CD">
+    <circle cx="68" cy="33" r="1.2"/>
+    <circle cx="56" cy="108" r="1.5"/>
+    <circle cx="66" cy="78" r="1"/>
+    <circle cx="100" cy="140" r="1.2"/>
+    <circle cx="137" cy="104" r="1.5"/>
+    <circle cx="116" cy="28" r="1"/>
+    <circle cx="92" cy="20" r="1.2"/>
+  </g>
+  <!-- высеченная буква Ӧ: тёмный желобок со светлой гранью -->
+  <g stroke="#3B2A1A" stroke-width="1.5" stroke-linejoin="round">
+    <ellipse cx="97" cy="97" rx="30" ry="38" fill="#EADDD5"/>
+    <ellipse cx="95.5" cy="95.5" rx="28.5" ry="36.5" fill="#6E5D56" stroke="none"/>
+    <ellipse cx="97" cy="97" rx="14.5" ry="24" fill="#EADDD5"/>
+    <ellipse cx="98.5" cy="98.5" rx="13" ry="22.5" fill="#BFAAA0" stroke="none"/>
+    <ellipse cx="97" cy="97" rx="14.5" ry="24" fill="none"/>
+    <rect x="80" y="40" width="10" height="10" rx="2.5" fill="#EADDD5"/>
+    <rect x="80" y="40" width="8.5" height="8.5" rx="2" fill="#6E5D56" stroke="none"/>
+    <rect x="104" y="40" width="10" height="10" rx="2.5" fill="#EADDD5"/>
+    <rect x="104" y="40" width="8.5" height="8.5" rx="2" fill="#6E5D56" stroke="none"/>
+  </g>
+  <!-- сколы по краям -->
+  <g fill="none" stroke="#3B2A1A" stroke-width="1.2" stroke-linecap="round">
+    <path d="M51,100 L57,97"/>
+    <path d="M51,52 L57,55"/>
+    <path d="M142,64 L136,62"/>
+    <path d="M143,114 L138,117"/>
+    <path d="M91,10 L92.5,16"/>
+    <path d="M147,90 L153,87"/>
+  </g>
+  <!-- куст с цветами -->
+  <g stroke="#3B2A1A" stroke-width="1.5" stroke-linejoin="round">
+    <circle cx="30" cy="164" r="9" fill="#5E8D4E"/>
+    <circle cx="42" cy="168" r="8" fill="#7FB069"/>
+    <circle cx="27" cy="160" r="3" fill="#D9483B"/>
+    <circle cx="36" cy="164" r="3" fill="#F6B135"/>
+    <circle cx="45" cy="166" r="3" fill="#D9483B"/>
+    <circle cx="164" cy="170" r="7" fill="#7FB069"/>
+    <circle cx="161" cy="168" r="3" fill="#FFF8EC"/>
+    <circle cx="168" cy="171" r="3" fill="#D9483B"/>
+  </g>
+</svg>

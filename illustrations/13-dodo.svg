@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="98" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- жилой дом: бок и фасад -->
+    <polygon points="124,64 172.5,36 172.5,152 124,180" fill="#D9C6A0"/>
+    <polygon points="124,160 172.5,132 172.5,152 124,180" fill="#85817A"/>
+    <rect x="14" y="64" width="110" height="116" fill="#F4E6C8"/>
+    <rect x="14" y="160" width="110" height="20" fill="#A7A39B"/>
+    <!-- вальмовая крыша с трубой -->
+    <polygon points="12,58 126,58 127,23.5 61,23.5" fill="#6E9E5F"/>
+    <polygon points="126,58 176.5,29 127,23.5" fill="#557E48"/>
+    <polygon points="104,38 109,35 109,22 104,25" fill="#A3452E"/>
+    <rect x="96" y="25" width="8" height="14" fill="#C65A3E"/>
+    <polygon points="95,25 105,25 110,22 100,22" fill="#E2D8C6"/>
+    <rect x="12" y="58" width="114" height="6" fill="#FFF8EC"/>
+    <polygon points="126,58 176.5,29 176.5,35 126,64" fill="#E2D8C6"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" fill="#4E6E91">
+    <rect x="21" y="67" width="12" height="17" rx="1.5"/>
+    <rect x="107" y="67" width="12" height="17" rx="1.5"/>
+    <rect x="21" y="96" width="12" height="17" rx="1.5"/>
+    <rect x="107" y="96" width="12" height="17" rx="1.5"/>
+    <rect x="21" y="125" width="12" height="17" rx="1.5"/>
+    <rect x="107" y="125" width="12" height="17" rx="1.5"/>
+    <polygon points="131,138 138,134 138,117 131,121"/>
+    <polygon points="145,130 152,126 152,109 145,113"/>
+    <polygon points="159,122 166,118 166,101 159,105"/>
+    <polygon points="131,109 138,105 138,88 131,92"/>
+    <polygon points="145,101 152,97 152,80 145,84"/>
+    <polygon points="159,93 166,89 166,72 159,76"/>
+    <polygon points="131,80 138,76 138,59 131,63"/>
+    <polygon points="145,72 152,68 152,51 145,55"/>
+    <polygon points="159,64 166,60 166,43 159,47"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" fill="#34495E">
+    <rect x="22" y="166" width="14" height="8" rx="1"/>
+    <rect x="100" y="166" width="16" height="8" rx="1"/>
+    <polygon points="132,170.5 144,163.5 144,155.5 132,162.5"/>
+    <polygon points="154,158 166,151 166,143 154,150"/>
+  </g>
+  <g fill="#A9CBEA">
+    <rect x="22.5" y="68.5" width="2.5" height="6"/>
+    <rect x="108.5" y="68.5" width="2.5" height="6"/>
+    <rect x="22.5" y="97.5" width="2.5" height="6"/>
+    <rect x="108.5" y="97.5" width="2.5" height="6"/>
+    <rect x="22.5" y="126.5" width="2.5" height="6"/>
+    <rect x="108.5" y="126.5" width="2.5" height="6"/>
+    <polygon points="132.5,127 134,126 134,122 132.5,123"/>
+    <polygon points="146.5,119 148,118 148,114 146.5,115"/>
+    <polygon points="160.5,111 162,110 162,106 160.5,107"/>
+    <polygon points="132.5,98 134,97 134,93 132.5,94"/>
+    <polygon points="146.5,90 148,89 148,85 146.5,86"/>
+    <polygon points="160.5,82 162,81 162,77 160.5,78"/>
+    <polygon points="132.5,69 134,68 134,64 132.5,65"/>
+    <polygon points="146.5,61 148,60 148,56 146.5,57"/>
+    <polygon points="160.5,53 162,52 162,48 160.5,49"/>
+  </g>
+  <!-- вход в полуподвал и оранжевый козырёк -->
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="56" y="156" width="20" height="24" fill="#34495E"/>
+    <rect x="58.5" y="159" width="15" height="21" fill="#FF6900" stroke-width="1.2"/>
+    <rect x="61" y="162" width="10" height="9" fill="#A9CBEA" stroke-width="1.2"/>
+    <rect x="38" y="140" width="76" height="10" fill="#FF6900"/>
+    <polygon points="114,150 114,158 106,163" fill="#D45500"/>
+    <path d="M38,150 L114,150 L106,163 L30,163 Z" fill="#FF6900"/>
+    <path d="M30,163 L106,163 L106,167 Q102.2,170.5 98.4,167 Q94.6,170.5 90.8,167 Q87,170.5 83.2,167 Q79.4,170.5 75.6,167 Q71.8,170.5 68,167 Q64.2,170.5 60.4,167 Q56.6,170.5 52.8,167 Q49,170.5 45.2,167 Q41.4,170.5 37.6,167 Q33.8,170.5 30,167 Z" fill="#D45500"/>
+  </g>
+  <g fill="#FFF8EC">
+    <polygon points="50,150 58,150 51,163 42,163"/>
+    <polygon points="68,150 76,150 69,163 60,163"/>
+    <polygon points="86,150 94,150 87,163 78,163"/>
+    <polygon points="104,150 111,150 105.5,159 96,163"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+    <polygon points="50,150 58,150 51,163 42,163" fill="none"/>
+    <polygon points="68,150 76,150 69,163 60,163" fill="none"/>
+    <polygon points="86,150 94,150 87,163 78,163" fill="none"/>
+  </g>
+  <!-- большая пицца-вывеска -->
+  <g stroke="#3B2A1A" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="72" cy="107.5" r="30" fill="#C08F22" stroke-width="2"/>
+    <circle cx="69" cy="105" r="30" fill="#E9B53A" stroke-width="2"/>
+    <path d="M93,105 Q96,111 90.5,115.5 Q90.5,122 84,124 Q81,130 74.5,128.5 Q69,132.5 63.5,128.5 Q57,130 54,124 Q47.5,122 47.5,115.5 Q42,111 45,105 Q42,99 47.5,94.5 Q47.5,88 54,86 Q57,80 63.5,81.5 Q69,77.5 74.5,81.5 Q81,80 84,86 Q90.5,88 90.5,94.5 Q96,99 93,105 Z" fill="#F7D774" stroke-width="1.4"/>
+    <path d="M45.5,96.5 L92.5,113.5 M64.5,80.5 L73.5,129.5 M88,89 L50,121" stroke="#CFA24A" stroke-width="1.4" fill="none"/>
+    <g fill="#C65A3E" stroke-width="1.2"><circle cx="58" cy="94" r="5.5"/><circle cx="80" cy="92" r="5.5"/><circle cx="70" cy="108" r="5.5"/><circle cx="55" cy="113" r="5.5"/><circle cx="85" cy="114" r="5.5"/><circle cx="68" cy="123" r="5.5"/><circle cx="93" cy="101" r="5.5"/></g>
+    <g fill="#A3452E" stroke="none"><circle cx="56.5" cy="93" r="1"/><circle cx="60" cy="95.5" r="0.9"/><circle cx="78.5" cy="91" r="1"/><circle cx="82" cy="93.5" r="0.9"/><circle cx="68.5" cy="107" r="1"/><circle cx="72" cy="109.5" r="0.9"/><circle cx="53.5" cy="112" r="1"/><circle cx="57" cy="114.5" r="0.9"/><circle cx="83.5" cy="113" r="1"/><circle cx="87" cy="115.5" r="0.9"/><circle cx="66.5" cy="122" r="1"/><circle cx="70" cy="124.5" r="0.9"/><circle cx="91.5" cy="100" r="1"/><circle cx="95" cy="102.5" r="0.9"/></g>
+    <path d="M47,96 A24,24 0 0 1 61,82" fill="none" stroke="#FFF8EC" stroke-width="2.2"/>
+    <g fill="#6E9E5F" stroke-width="1">
+      <ellipse cx="66" cy="96" rx="3.5" ry="2"/>
+      <ellipse cx="78" cy="104" rx="3.5" ry="2"/>
+      <ellipse cx="62" cy="120" rx="3.5" ry="2"/>
+    </g>
+  </g>
+  <!-- коробки с пиццей -->
+  <g stroke="#3B2A1A" stroke-width="1.6" stroke-linejoin="round">
+    <polygon points="165,187 180.5,178 180.5,173 165,182" fill="#CDBF9F"/>
+    <rect x="133" y="182" width="32" height="5" fill="#E6D9BD"/>
+    <polygon points="165,182 180.5,173 180.5,168 165,177" fill="#CDBF9F"/>
+    <rect x="133" y="177" width="32" height="5" fill="#E6D9BD"/>
+    <polygon points="165,177 180.5,168 180.5,163 165,172" fill="#CDBF9F"/>
+    <rect x="133" y="172" width="32" height="5" fill="#E6D9BD"/>
+    <polygon points="133,172 165,172 180.5,163 148.5,163" fill="#F4E6C8"/>
+    <polygon points="145,169.5 157,169.5 161.5,166.5 149.5,166.5" fill="#FF6900" stroke-width="1.2"/>
+  </g>
+</svg>

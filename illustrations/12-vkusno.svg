@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <ellipse cx="98" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18"/>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- плоская крыша и машинное отделение -->
+    <polygon points="16,66 146,66 175.5,49 45.5,49" fill="#E6D9BD"/>
+    <polygon points="124,60 132,55.5 132,45.5 124,50" fill="#D9C6A0"/>
+    <rect x="100" y="50" width="24" height="10" fill="#F4E6C8"/>
+    <polygon points="100,50 124,50 132,45.5 108,45.5" fill="#E6D9BD"/>
+    <!-- боковой фасад -->
+    <polygon points="146,178 175.5,161 175.5,49 146,66" fill="#D9C6A0"/>
+    <!-- главный фасад из светлых панелей -->
+    <rect x="16" y="66" width="130" height="112" fill="#F4E6C8"/>
+    <rect x="14" y="63" width="134" height="5" fill="#FFF8EC"/>
+    <polygon points="148,63 177.5,46 177.5,51 148,68" fill="#E2D8C6"/>
+    <!-- плита над стеклянным первым этажом -->
+    <rect x="14" y="138" width="134" height="6" fill="#FFF8EC"/>
+    <polygon points="148,138 177.5,121 177.5,127 148,144" fill="#E2D8C6"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.5" stroke-linejoin="round">
+    <!-- ленточные окна -->
+    <rect x="22" y="75" width="118" height="18" fill="#4E6E91"/>
+    <rect x="22" y="107" width="118" height="18" fill="#4E6E91"/>
+    <polygon points="149.5,91 172,78 172,60 149.5,73" fill="#4E6E91"/>
+    <polygon points="149.5,123 172,110 172,92 149.5,105" fill="#4E6E91"/>
+    <!-- витражи первого этажа -->
+    <rect x="19" y="147" width="124" height="31" fill="#4E6E91"/>
+    <polygon points="149.5,176 172,163 172,132 149.5,145" fill="#4E6E91"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linecap="round">
+    <line x1="35" y1="75" x2="35" y2="93"/>
+    <line x1="48" y1="75" x2="48" y2="93"/>
+    <line x1="61" y1="75" x2="61" y2="93"/>
+    <line x1="74" y1="75" x2="74" y2="93"/>
+    <line x1="87" y1="75" x2="87" y2="93"/>
+    <line x1="100" y1="75" x2="100" y2="93"/>
+    <line x1="113" y1="75" x2="113" y2="93"/>
+    <line x1="126" y1="75" x2="126" y2="93"/>
+    <line x1="35" y1="107" x2="35" y2="125"/>
+    <line x1="48" y1="107" x2="48" y2="125"/>
+    <line x1="61" y1="107" x2="61" y2="125"/>
+    <line x1="74" y1="107" x2="74" y2="125"/>
+    <line x1="87" y1="107" x2="87" y2="125"/>
+    <line x1="100" y1="107" x2="100" y2="125"/>
+    <line x1="113" y1="107" x2="113" y2="125"/>
+    <line x1="126" y1="107" x2="126" y2="125"/>
+    <line x1="161" y1="84.5" x2="161" y2="66.5"/>
+    <line x1="161" y1="116.5" x2="161" y2="98.5"/>
+    <line x1="161" y1="169.5" x2="161" y2="138.5"/>
+  </g>
+  <g fill="#A9CBEA">
+    <rect x="24.5" y="77" width="3" height="7"/>
+    <rect x="50.5" y="77" width="3" height="7"/>
+    <rect x="76.5" y="77" width="3" height="7"/>
+    <rect x="102.5" y="77" width="3" height="7"/>
+    <rect x="128.5" y="77" width="3" height="7"/>
+    <rect x="37.5" y="109" width="3" height="7"/>
+    <rect x="63.5" y="109" width="3" height="7"/>
+    <rect x="89.5" y="109" width="3" height="7"/>
+    <rect x="115.5" y="109" width="3" height="7"/>
+    <polygon points="152,104 155,102.5 155,108.5 152,110"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round">
+    <!-- стойки витражей -->
+    <rect x="38" y="147" width="4" height="31" fill="#F4E6C8"/>
+    <rect x="61" y="147" width="4" height="31" fill="#F4E6C8"/>
+    <rect x="84" y="147" width="4" height="31" fill="#F4E6C8"/>
+  </g>
+  <g fill="#A9CBEA" opacity="0.9">
+    <polygon points="22,162 28.5,151 31.5,151 25,162"/>
+    <polygon points="45,162 51.5,151 54.5,151 48,162"/>
+    <polygon points="68,162 74.5,151 77.5,151 71,162"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- вход в ресторан -->
+    <rect x="98" y="156" width="24" height="22" fill="#34495E"/>
+    <line x1="110" y1="156" x2="110" y2="178" stroke-width="1.5"/>
+    <!-- тёмно-зелёная вывеска -->
+    <polygon points="85,131 135,131 141,127.5 91,127.5" fill="#3E7350"/>
+    <polygon points="135,131 141,127.5 141,149 135,152.5" fill="#1F4630"/>
+    <rect x="85" y="131" width="50" height="21.5" fill="#2E5E3E"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+    <!-- логотип: две «картошки» и кружок -->
+    <polygon points="96,148.5 101,148.5 107,135 102,135" fill="#F6B135"/>
+    <polygon points="104,148.5 109,148.5 115,135 110,135" fill="#F08A24"/>
+    <circle cx="121" cy="144" r="4.5" fill="#E8632B"/>
+  </g>
+  <g stroke="#3B2A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- столик под зонтиком -->
+    <line x1="42" y1="160" x2="42" y2="188" stroke-width="2"/>
+    <path d="M27,166 Q42,151 57,166 Z" fill="#FFF8EC" stroke-width="2"/>
+    <path d="M37,166 Q38,156 42,155.5 Q46,156 47,166 Z" fill="#2E5E3E" stroke-width="1.2"/>
+    <path d="M27,166 Q42,151 57,166 Z" fill="none" stroke-width="2"/>
+    <line x1="42" y1="182" x2="42" y2="188" stroke-width="2"/>
+    <ellipse cx="42" cy="181" rx="8" ry="2.5" fill="#FFF8EC"/>
+    <!-- скамейка -->
+    <rect x="62" y="183" width="20" height="3" fill="#8C7457"/>
+    <line x1="64" y1="186" x2="64" y2="190"/>
+    <line x1="80" y1="186" x2="80" y2="190"/>
+    <!-- дерево у торца -->
+    <line x1="182" y1="170" x2="182" y2="181" stroke-width="2"/>
+    <circle cx="182" cy="162" r="9" fill="#7FB069" stroke-width="2"/>
+    <path d="M176,164 Q178,159 183,158" fill="none" stroke="#5E8D4E"/>
+  </g>
+</svg>

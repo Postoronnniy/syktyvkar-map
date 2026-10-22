@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<ellipse cx="100" cy="182" rx="82" ry="11" fill="#3B2A1A" opacity="0.18"/>
+<!-- задняя левая глава -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="62" y="88.5" width="16" height="15" fill="#FFF8EC"/>
+<rect x="73.5" y="88.5" width="4.5" height="15" fill="#E2D8C6"/>
+<rect x="60.5" y="85.5" width="19" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<path d="M65,100.5 V94 Q66.5,91.5 68.5,94 V100.5 Z" fill="#4E6E91"/>
+<path d="M69.5,100.5 V94 Q71.5,91.5 73,94 V100.5 Z" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M65,85.5 C53,77.5 61,69 70,58.5 C79,69 87,77.5 75,85.5 Z" fill="#E9B53A"/>
+<path d="M70,58.5 C79,69 87,77.5 75,85.5 L71,85.5 C80,77.5 74.5,69 70,58.5 Z" fill="#C08F22" stroke-width="1.2"/>
+<path d="M62.5,78 Q62,71.5 66.5,66.5" fill="none" stroke="#FFF8EC" stroke-width="2" opacity="0.85"/>
+</g>
+<g stroke-linecap="round">
+<line x1="70" y1="47" x2="70" y2="60" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="65.5" y1="50.5" x2="74.5" y2="50.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="67" y1="56.5" x2="73" y2="53.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="70" y1="47" x2="70" y2="60" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="65.5" y1="50.5" x2="74.5" y2="50.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="67" y1="56.5" x2="73" y2="53.5" stroke="#E9B53A" stroke-width="1.4"/>
+</g>
+<!-- задняя правая глава -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="140" y="88.5" width="16" height="15" fill="#FFF8EC"/>
+<rect x="151.5" y="88.5" width="4.5" height="15" fill="#E2D8C6"/>
+<rect x="138.5" y="85.5" width="19" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<path d="M143,100.5 V94 Q144.5,91.5 146.5,94 V100.5 Z" fill="#4E6E91"/>
+<path d="M147.5,100.5 V94 Q149.5,91.5 151,94 V100.5 Z" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M143,85.5 C131,77.5 139,69 148,58.5 C157,69 165,77.5 153,85.5 Z" fill="#E9B53A"/>
+<path d="M148,58.5 C157,69 165,77.5 153,85.5 L149,85.5 C158,77.5 152.5,69 148,58.5 Z" fill="#C08F22" stroke-width="1.2"/>
+<path d="M140.5,78 Q140,71.5 144.5,66.5" fill="none" stroke="#FFF8EC" stroke-width="2" opacity="0.85"/>
+</g>
+<g stroke-linecap="round">
+<line x1="148" y1="47" x2="148" y2="60" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="143.5" y1="50.5" x2="152.5" y2="50.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="145" y1="56.5" x2="151" y2="53.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="148" y1="47" x2="148" y2="60" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="143.5" y1="50.5" x2="152.5" y2="50.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="145" y1="56.5" x2="151" y2="53.5" stroke="#E9B53A" stroke-width="1.4"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- кровля по закомарам -->
+<polygon points="158.5,112 158.5,109 159.5,105.5 160.5,102.5 162,100.5 163.5,99 165,98.5 166.5,99 168,100.5 168.5,103 169,106 139,106 138.5,103 138,100.5 136.5,99 135,98.5 133.5,99 132,100.5 130.5,102.5 129.5,105.5 128.5,109 128.5,112" fill="#8C9DAE"/>
+<polygon points="134,126 134.5,123 135,119.5 136,116.5 137.5,114.5 139,113 141,112.5 142.5,113 143.5,114.5 144,117 144.5,120 114.5,120 114,117 113.5,114.5 112.5,113 111,112.5 109,113 107.5,114.5 106,116.5 105,119.5 104.5,123 104,126" fill="#8C9DAE"/>
+<path d="M30,126 A12,13 0 0 1 36.5,114.5 L71,94.5 A12,13 0 0 1 89,106 L54,126 Z" fill="#8C9DAE"/>
+<path d="M110,126 A12,13 0 0 1 116.5,114.5 L151,94.5 A12,13 0 0 1 169,106 L134,126 Z" fill="#8C9DAE"/>
+<polygon points="144.5,120 145,115 146,110.5 147.5,106 149,103 151.5,101 153.5,100.5 155.5,101.5 157,104 158,107.5 158.5,112 102.5,112 102,107.5 101,104 99.5,101.5 97.5,100.5 95.5,101 93,103 91.5,106 90,110.5 89,115 88.5,120" fill="#8C9DAE"/>
+<path d="M54,126 A28,19 0 0 1 64,111.5 L99,91.5 A28,19 0 0 1 145,106 L110,126 Z" fill="#8C9DAE"/>
+</g>
+<!-- центральный барабан и большая глава -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="84.5" y="77" width="30" height="24" fill="#FFF8EC"/>
+<rect x="106" y="77" width="8.5" height="24" fill="#E2D8C6"/>
+<rect x="83" y="74" width="33" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<path d="M90,98 V83.5 Q92.5,79 95,83.5 V98 Z" fill="#4E6E91"/>
+<path d="M96,98 V83.5 Q98.5,79 101,83.5 V98 Z" fill="#4E6E91"/>
+<path d="M102,98 V83.5 Q104.5,79 107,83.5 V98 Z" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M90.5,74 C65.5,59.5 81.5,44 99.5,26 C117.5,44 133.5,59.5 108.5,74 Z" fill="#E9B53A"/>
+<path d="M99.5,26 C117.5,44 133.5,59.5 108.5,74 L101.5,74 C119.5,59.5 108.5,44 99.5,26 Z" fill="#C08F22" stroke-width="1.2"/>
+<path d="M84.5,60.5 Q83.5,49 93,40.5" fill="none" stroke="#FFF8EC" stroke-width="4" opacity="0.85"/>
+</g>
+<g stroke-linecap="round">
+<line x1="99.5" y1="10.5" x2="99.5" y2="27.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="93.5" y1="15.5" x2="105" y2="15.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="95.5" y1="22.5" x2="103.5" y2="18.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="99.5" y1="10.5" x2="99.5" y2="27.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="93.5" y1="15.5" x2="105" y2="15.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="95.5" y1="22.5" x2="103.5" y2="18.5" stroke="#E9B53A" stroke-width="1.4"/>
+</g>
+<!-- передняя левая глава -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="43" y="103.5" width="16" height="15" fill="#FFF8EC"/>
+<rect x="54.5" y="103.5" width="4.5" height="15" fill="#E2D8C6"/>
+<rect x="41.5" y="100.5" width="19" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<path d="M45.5,115.5 V109 Q47.5,106.5 49,109 V115.5 Z" fill="#4E6E91"/>
+<path d="M50.5,115.5 V109 Q52,106.5 54,109 V115.5 Z" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M46,100.5 C34,92.5 42,84 51,73.5 C60,84 68,92.5 55.5,100.5 Z" fill="#E9B53A"/>
+<path d="M51,73.5 C60,84 68,92.5 55.5,100.5 L52,100.5 C61,92.5 55.5,84 51,73.5 Z" fill="#C08F22" stroke-width="1.2"/>
+<path d="M43.5,93 Q43,86.5 47.5,81.5" fill="none" stroke="#FFF8EC" stroke-width="2" opacity="0.85"/>
+</g>
+<g stroke-linecap="round">
+<line x1="51" y1="62" x2="51" y2="75" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="46.5" y1="65.5" x2="55" y2="65.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="47.5" y1="71.5" x2="54" y2="68.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="51" y1="62" x2="51" y2="75" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="46.5" y1="65.5" x2="55" y2="65.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="47.5" y1="71.5" x2="54" y2="68.5" stroke="#E9B53A" stroke-width="1.4"/>
+</g>
+<!-- передняя правая глава -->
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="121" y="103.5" width="16" height="15" fill="#FFF8EC"/>
+<rect x="132.5" y="103.5" width="4.5" height="15" fill="#E2D8C6"/>
+<rect x="119.5" y="100.5" width="19" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<path d="M123.5,115.5 V109 Q125.5,106.5 127,109 V115.5 Z" fill="#4E6E91"/>
+<path d="M128.5,115.5 V109 Q130,106.5 132,109 V115.5 Z" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M124,100.5 C112,92.5 120,84 129,73.5 C138,84 146,92.5 133.5,100.5 Z" fill="#E9B53A"/>
+<path d="M129,73.5 C138,84 146,92.5 133.5,100.5 L130,100.5 C139,92.5 133.5,84 129,73.5 Z" fill="#C08F22" stroke-width="1.2"/>
+<path d="M121.5,93 Q121,86.5 125.5,81.5" fill="none" stroke="#FFF8EC" stroke-width="2" opacity="0.85"/>
+</g>
+<g stroke-linecap="round">
+<line x1="129" y1="62" x2="129" y2="75" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="124.5" y1="65.5" x2="133" y2="65.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="125.5" y1="71.5" x2="132" y2="68.5" stroke="#3B2A1A" stroke-width="3.6"/>
+<line x1="129" y1="62" x2="129" y2="75" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="124.5" y1="65.5" x2="133" y2="65.5" stroke="#E9B53A" stroke-width="1.4"/>
+<line x1="125.5" y1="71.5" x2="132" y2="68.5" stroke="#E9B53A" stroke-width="1.4"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- боковой фасад -->
+<polygon points="134,178 134,126 134.5,123 135,119.5 136,116.5 137.5,114.5 139,113 141,112.5 142.5,113 143.5,114.5 144,117 144.5,120 145,115 146,110.5 147.5,106 149,103 151.5,101 153.5,100.5 155.5,101.5 157,104 158,107.5 158.5,112 158.5,109 159.5,105.5 160.5,102.5 162,100.5 163.5,99 165,98.5 166.5,99 168,100.5 168.5,103 169,106 169,158" fill="#D9C6A0"/>
+<!-- главный фасад с закомарами -->
+<path d="M30,178 V126 A12,13 0 0 1 54,126 A28,19 0 0 1 110,126 A12,13 0 0 1 134,126 V178 Z" fill="#F4E6C8"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+<!-- лопатки и обрамление закомар -->
+<rect x="30" y="124" width="5" height="46" fill="#FFF8EC"/>
+<rect x="51.5" y="124" width="5" height="46" fill="#FFF8EC"/>
+<rect x="107.5" y="124" width="5" height="46" fill="#FFF8EC"/>
+<rect x="129" y="124" width="5" height="46" fill="#FFF8EC"/>
+<path d="M31,126 A11,12 0 0 1 53,126 L50,126 A8,9 0 0 0 34,126 Z" fill="#FFF8EC"/>
+<path d="M55,126 A27,18 0 0 1 109,126 L106,126 A24,15 0 0 0 58,126 Z" fill="#FFF8EC"/>
+<path d="M111,126 A11,12 0 0 1 133,126 L130,126 A8,9 0 0 0 114,126 Z" fill="#FFF8EC"/>
+<rect x="30" y="123" width="104" height="4" fill="#FFF8EC"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<!-- арочные окна -->
+<path d="M39,149 V137 A3,3 0 0 1 45,137 V149 Z" fill="#4E6E91"/>
+<path d="M39,170 V158 A3,3 0 0 1 45,158 V170 Z" fill="#4E6E91"/>
+<path d="M119,149 V137 A3,3 0 0 1 125,137 V149 Z" fill="#4E6E91"/>
+<path d="M119,170 V158 A3,3 0 0 1 125,158 V170 Z" fill="#4E6E91"/>
+<path d="M68,150 V137 A3,3 0 0 1 74,137 V150 Z" fill="#4E6E91"/>
+<path d="M90,150 V137 A3,3 0 0 1 96,137 V150 Z" fill="#4E6E91"/>
+<path d="M78.5,122 V115.5 A3.5,3.5 0 0 1 85.5,115.5 V122 Z" fill="#4E6E91"/>
+<path d="M74,170 V154 A8,8 0 0 1 90,154 V170 Z" fill="#8C7457"/>
+<line x1="82" y1="154" x2="82" y2="170"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="1.2" stroke-linejoin="round">
+<polygon points="137.5,147 141,145 141,132.5 139,130 137.5,133.5" fill="#4E6E91"/>
+<polygon points="137.5,168 141,166 141,153.5 139,151 137.5,154.5" fill="#4E6E91"/>
+<polygon points="149.5,140 153,138 153,125.5 151.5,123 149.5,126.5" fill="#4E6E91"/>
+<polygon points="149.5,161 153,159 153,146.5 151.5,144 149.5,147.5" fill="#4E6E91"/>
+<polygon points="162,133 165.5,131 165.5,118.5 163.5,116 162,119.5" fill="#4E6E91"/>
+<polygon points="162,154 165.5,152 165.5,139.5 163.5,137 162,140.5" fill="#4E6E91"/>
+</g>
+<g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<!-- цоколь -->
+<rect x="28" y="172" width="106" height="6" fill="#A7A39B"/>
+<polygon points="134,178 169,158 169,152 134,172" fill="#85817A"/>
+</g>
+</svg>
