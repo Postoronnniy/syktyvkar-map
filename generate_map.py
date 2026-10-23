@@ -2041,7 +2041,7 @@ HTML_TEMPLATE = r"""<!doctype html>
 <meta property="og:image:width" content="2480">
 <meta property="og:image:height" content="3508">
 __OG_URL__<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23D32F2F' stroke='white' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 :root{
   --bg:#FBF6EC; --paper:#FFFDF8; --sand:#F1E4C6; --map-bg:#E9D8B4;
