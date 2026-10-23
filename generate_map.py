@@ -232,6 +232,7 @@ GEO_BBOX = (61.615, 50.72, 61.725, 50.93)  # юг, запад, север, во�
 ILLUSTRATIONS_DIR = ROOT / "illustrations"
 SHOW_ILLUSTRATIONS = True  # мультяшные рисунки объектов на карте (как на референсе)
 SHOW_BUILDINGS = True      # детальная застройка (дома) из geo/syktyvkar_buildings_raw.json
+SHOW_YAH = False           # метка «Вы здесь» — убрана
 ILLU_SIZE = 230            # px, длинная сторона рисунка на карте (≈19 мм в печати)
 ILLU_MAX_DIST = 660        # дальше от своего номера рисунок не уводим
 SVG_NS = "http://www.w3.org/2000/svg"
@@ -1142,12 +1143,12 @@ def build_scene(meta: dict, data: list[dict], geo: dict, typo: Typo) -> Scene:
     sc.ui["title"] = Box(SAFE, SAFE, SAFE + tw + 2 * 56, SAFE + 300)
     sc.ui["north"] = Box(PAGE_W - SAFE - 200, SAFE, PAGE_W - SAFE, SAFE + 250)
     if LEGEND_MODE == "list":  # все точки по номерам — маркеры одного цвета, категории не различить
-        items = [("num", a, a["name"]) for a in data] + [("yah", None, "Вы здесь")]
+        items = [("num", a, a["name"]) for a in data]
         size, row_h = 26, 46
     else:
         cats = [c for c in PALETTE if any(a["category"] == c for a in data)]
         cats += sorted({a["category"] for a in data} - set(cats))
-        items = [("cat", c, c.capitalize()) for c in cats] + [("yah", None, "Вы здесь")]
+        items = [("cat", c, c.capitalize()) for c in cats]
         size, row_h = 30, 52
     col_w = 48 + min(560, max(typo.width(t, size) for _, _, t in items))
     rows = math.ceil(len(items) / 2)
@@ -1158,8 +1159,9 @@ def build_scene(meta: dict, data: list[dict], geo: dict, typo: Typo) -> Scene:
     sc.ui["scalebar"] = Box(SAFE, PAGE_H - SAFE - 190, SAFE + max(km + 150, 760), PAGE_H - SAFE)
 
     # ── «Вы здесь»
-    yx, yy = proj.xy(*YOU_ARE_HERE)
-    sc.yah = {"x": yx, "y": yy}
+    if SHOW_YAH:
+        yx, yy = proj.xy(*YOU_ARE_HERE)
+        sc.yah = {"x": yx, "y": yy}
 
     # ── подписи достопримечательностей
     labels = []
@@ -1171,9 +1173,9 @@ def build_scene(meta: dict, data: list[dict], geo: dict, typo: Typo) -> Scene:
         labels.append(Label(a["id"], lines_, x, y, w, h))
     r = MARKER_R + MARKER_STROKE / 2
     marker_boxes = [Box(a["xy"][0] - r, a["xy"][1] - r, a["xy"][0] + r, a["xy"][1] + r) for a in data]
-    yah_box = Box(yx - 24, yy - 24, yx + 24, yy + 24)
+    yah_box = Box(yx - 24, yy - 24, yx + 24, yy + 24) if SHOW_YAH else None
     ui_boxes = [b for k, b in sc.ui.items() if isinstance(b, Box)]
-    obstacles = marker_boxes + [yah_box] + ui_boxes
+    obstacles = marker_boxes + ([yah_box] if yah_box else []) + ui_boxes
 
     # «Указатель» — правый столбец под стрелкой севера. Сначала раскладываем без него;
     # если что-то не влезло — резервируем столбец и раскладываем заново.
@@ -1195,27 +1197,28 @@ def build_scene(meta: dict, data: list[dict], geo: dict, typo: Typo) -> Scene:
             sc.ui.pop("index", None)
 
     # «ВЫ ЗДЕСЬ» — подпись под точкой, иначе над, слева, справа
-    yah_w = typo.width("ВЫ ЗДЕСЬ", 30, True) + 2 * HALO_W
     taken = obstacles + [l.box for l in sc.labels if l.placed] + ([sc.ui["index"]] if "index" in sc.ui else [])
-    taken = [b for b in taken if b is not yah_box]
-    for bx, by, anchor in ((yx - yah_w / 2, yy + 30, "middle"), (yx - yah_w / 2, yy - 30 - 40, "middle"),
-                           (yx - 30 - yah_w, yy - 20, "end"), (yx + 30, yy - 20, "start")):
-        box = Box(bx, by, bx + yah_w, by + 40)
-        if not any(box.hits(o, 4) for o in taken):
-            break
-    sc.yah["box"] = box
-    taken.append(box)
+    if SHOW_YAH:
+        yah_w = typo.width("ВЫ ЗДЕСЬ", 30, True) + 2 * HALO_W
+        taken = [b for b in taken if b is not yah_box]
+        for bx, by, anchor in ((yx - yah_w / 2, yy + 30, "middle"), (yx - yah_w / 2, yy - 30 - 40, "middle"),
+                               (yx - 30 - yah_w, yy - 20, "end"), (yx + 30, yy - 20, "start")):
+            box = Box(bx, by, bx + yah_w, by + 40)
+            if not any(box.hits(o, 4) for o in taken):
+                break
+        sc.yah["box"] = box
+        taken.append(box)
 
     # ── мультяшные рисунки объектов (как на референсе). Ставятся после подписей и до
     # районов: подписи важнее, а районы и реки потом обходят рисунки.
     if SHOW_ILLUSTRATIONS:
-        sc.illustrations = place_illustrations(data, taken + [yah_box])
+        sc.illustrations = place_illustrations(data, taken + ([yah_box] if yah_box else []))
         taken += [il["core"] for il in sc.illustrations]
 
     # ── районы: границы и подписи
     sites = [proj.xy(lat, lon) for _, lat, lon in DISTRICTS]
     sc.district_edges = voronoi_edges(sites, BLEED_RECT)
-    taken += marker_boxes + [yah_box]
+    taken += marker_boxes + ([yah_box] if yah_box else [])
     sc.district_labels = place_districts(proj, typo, taken)
 
     # ── подписи рек
@@ -1631,15 +1634,16 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
         out.append(layer("illustrations", "Рисунки объектов", ills, web))
 
     # ── «Вы здесь» (в HTML — с пульсацией)
-    yx, yy, yb = sc.yah["x"], sc.yah["y"], sc.yah["box"]
-    yah = []
-    if web:
-        yah.append(el("circle", {"class": "yah-pulse", "cx": yx, "cy": yy, "r": 18, "fill": YAH_RED}))
-    yah.append(el("circle", {"cx": yx, "cy": yy, "r": 18, "fill": YAH_RED, "stroke": "#FFFFFF", "stroke-width": 6}))
-    anchor = "middle" if abs(yb.cx - yx) < 2 else ("end" if yb.x1 <= yx else "start")
-    tx = yb.cx if anchor == "middle" else (yb.x1 - HALO_W if anchor == "end" else yb.x0 + HALO_W)
-    yah.append(haloed(tx, yb.y1 - 10, "ВЫ ЗДЕСЬ", 30, bold=True, fill=YAH_RED, anchor=anchor))
-    out.append(layer("you-are-here", "Вы здесь", el("g", sym_attrs(yx, yy, web), yah), web))
+    if SHOW_YAH:
+        yx, yy, yb = sc.yah["x"], sc.yah["y"], sc.yah["box"]
+        yah = []
+        if web:
+            yah.append(el("circle", {"class": "yah-pulse", "cx": yx, "cy": yy, "r": 18, "fill": YAH_RED}))
+        yah.append(el("circle", {"cx": yx, "cy": yy, "r": 18, "fill": YAH_RED, "stroke": "#FFFFFF", "stroke-width": 6}))
+        anchor = "middle" if abs(yb.cx - yx) < 2 else ("end" if yb.x1 <= yx else "start")
+        tx = yb.cx if anchor == "middle" else (yb.x1 - HALO_W if anchor == "end" else yb.x0 + HALO_W)
+        yah.append(haloed(tx, yb.y1 - 10, "ВЫ ЗДЕСЬ", 30, bold=True, fill=YAH_RED, anchor=anchor))
+        out.append(layer("you-are-here", "Вы здесь", el("g", sym_attrs(yx, yy, web), yah), web))
 
     # ── маркеры
     mk = []

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Герб Республики Коми">
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D43030"/>
+      <stop offset="1" stop-color="#A81414"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD95A"/>
+      <stop offset="1" stop-color="#E8A60E"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8870A"/>
+      <stop offset="1" stop-color="#A66B00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Щит (тильда: широкий верх, острый низ) -->
+  <path d="M10 8 L54 8 L54 16 Q54 38 32 55 Q10 38 10 16 Z" fill="url(#red)" stroke="#7A0D0D" stroke-width="1.2"/>
+  <!-- золотая кайма по щиту -->
+  <path d="M9 7.5 L55 7.5 L55 16 Q55 38 32 55.5 Q9 38 9 16 Z"
+        fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.9"/>
+
+  <!-- Золотая хищная птица (по пермскому звериному стилю) -->
+  <g fill="url(#gold)" stroke="url(#dark)" stroke-width="0.9" stroke-linejoin="round">
+    <!-- левое крыло -->
+    <path d="M4 24 Q12 17 20 21 Q27 24 31 27 Q29 31 22 31 Q13 31 4 27 Z"/>
+    <!-- правое крыло -->
+    <path d="M60 24 Q52 17 44 21 Q37 24 33 27 Q35 31 42 31 Q51 31 60 27 Z"/>
+    <!-- тело -->
+    <path d="M22 30 Q32 35 42 30 Q40 45 32 50 Q24 45 22 30 Z"/>
+    <!-- хвост -->
+    <path d="M27 47 L32 58 L37 47 L34 49 L32 55 L30 49 Z" stroke-width="0.8"/>
+    <!-- голова -->
+    <circle cx="32" cy="25" r="6.2"/>
+    <!-- клюв -->
+    <path d="M32 22 Q36 24 34 27 Q32 25 32 22 Z" fill="#E08A00" stroke="none"/>
+    <!-- глаза -->
+    <circle cx="30" cy="23.8" r="1.25" fill="#7A0D0D" stroke="none"/>
+    <circle cx="34" cy="23.8" r="1.25" fill="#7A0D0D" stroke="none"/>
+  </g>
+
+  <!-- Лик-солнце на груди с лучами (эмблема герба) -->
+  <g stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round">
+    <line x1="32" y1="29" x2="32" y2="26"/>
+    <line x1="24" y1="34" x2="21.5" y2="33"/>
+    <line x1="40" y1="34" x2="42.5" y2="33"/>
+    <line x1="26.5" y1="30.5" x2="24.5" y2="28.8"/>
+    <line x1="37.5" y1="30.5" x2="39.5" y2="28.8"/>
+  </g>
+  <circle cx="32" cy="38" r="7.8" fill="#FBCA3E" stroke="url(#dark)" stroke-width="1.1"/>
+  <circle cx="28.6" cy="36.5" r="1.05" fill="#7A0D0D"/>
+  <circle cx="35.4" cy="36.5" r="1.05" fill="#7A0D0D"/>
+  <path d="M29.5 40.3 Q32 42.3 34.5 40.3" fill="none" stroke="#7A0D0D" stroke-width="1.15" stroke-linecap="round"/>
+</svg>
