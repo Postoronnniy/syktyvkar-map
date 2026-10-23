@@ -80,6 +80,14 @@ footer a{color:inherit}
 .marker.is-active .ring,.marker:focus-visible .ring{opacity:1}
 .hit{fill:transparent}
 .illu{cursor:pointer}
+/* при зуме оформление печатного листа (заголовок, легенда, линейка) убираем — оно бы росло */
+#map-svg :is(#title,#north,#scalebar,#legend,#index){transition:opacity .25s ease}
+#map-svg.is-zoomed :is(#title,#north,#scalebar,#legend,#index){opacity:0;pointer-events:none}
+.dyn-scale{position:absolute;left:12px;bottom:12px;display:none;align-items:center;gap:8px;padding:6px 10px;
+  border:1px solid var(--line);border-radius:10px;background:rgba(255,253,248,.94);color:var(--ink);font-size:13px;
+  box-shadow:0 1px 4px rgba(42,38,34,.18)}
+.dyn-scale i{display:block;height:7px;border:2px solid var(--ink);border-top:0}
+.map-pane.is-zoomed .dyn-scale{display:flex}
 .yah-pulse{transform-box:fill-box;transform-origin:center;animation:yah 1.8s ease-out infinite;pointer-events:none}
 @keyframes yah{0%{transform:scale(1);opacity:.55}100%{transform:scale(3.4);opacity:0}}
 @media (max-width:860px){
@@ -155,8 +163,8 @@ footer a{color:inherit}
 <path d="M2132.3 -127.7L2146.3 29.6L2139.3 113.7L2147.8 183.9L2163.6 221.7L2177.5 291L2167.9 348.2L2146.6 402.7L2081.2 470.6L2044.1 502.2L1982.2 529.1L1900.5 546.5L1821.8 546.1L1750.7 520.7L1708.2 485.2L1675.7 439.6L1600.7 516.8L1630.4 615.2L1646.2 619.3L1667.9 638.3L1734.4 670.8L1794.7 685.5L1854.1 689.1L1963.9 678.4L2037.2 657.5L2116.4 624.5L2172.1 585.5L2195.3 553L2195 540.6L2266.9 428.4L2295.9 378.3L2321.8 322L2334.1 277.3L2339.5 222.4L2334.6 194.1L2338.7 168.8L2348.2 130.7L2377.6 87.8L2385.4 64.9L2382.3 55.4L2366.7 55.2L2355.9 62.2L2350.2 75.9L2324.4 106.3L2318.7 107.9L2311.9 102.8L2314.9 70L2310 57.6L2311.3 41L2324.4 3.6L2328.7 -22.1L2322.3 -26.3L2314.7 -23.7L2307.8 -10.8L2301.9 -7.6L2298.7 -9.6L2296.4 -21.3L2306.1 -74L2298.9 -90.2L2288.1 -88.7L2280.4 -80.6L2256.6 29.3L2246.8 34.4L2234.3 25.9L2213.6 -29.6L2206.9 -103.5L2209.7 -148L2132.3 -148Z" fill="#6FB6EA" fill-rule="evenodd" stroke="#6FB6EA" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M1799.1 1041L1804.3 976.3L1809.8 970.4L1814.9 971L1820.1 984L1823.2 1010.9L1821.1 1025.7L1828.6 1060.9L1832.2 1101.7L1837.6 1110.5L1847.9 1153.5L1851.9 1234.3L1821.5 1239.7L1817.4 1234.5L1799.8 1080.7Z" fill="#6FB6EA" fill-rule="evenodd" stroke="#6FB6EA" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M2172.1 585.5L2195.3 553L2284.1 559.9L2385.5 557.5L2482.8 561.7L2512.9 552.2L2539.4 532.1L2541 525.6L2562.2 504.3L2590.8 486.3L2601.5 472L2628 460L2628 493.5L2579.6 525.6L2549.8 563.8L2532.9 576.9L2511.4 585.7L2485.5 588.8L2444.2 585.3L2392.5 586.9L2325.6 597.7L2273.9 598.5Z" fill="#6FB6EA" fill-rule="evenodd" stroke="#6FB6EA" stroke-width="1.5" stroke-linejoin="round"/>
-<text x="1996" y="2089.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="34" font-weight="bold" font-style="italic" letter-spacing="2" text-anchor="middle" fill="#163F6E" transform="rotate(5.3 1996 2077.2)">р. Сысола</text>
-<text x="1906.5" y="643.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="34" font-weight="bold" font-style="italic" letter-spacing="2" text-anchor="middle" fill="#163F6E" transform="rotate(-3.6 1906.5 631.5)">р. Вычегда</text></g>
+<g class="sym" data-ax="1996" data-ay="2077.2"><text x="1996" y="2089.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="34" font-weight="bold" font-style="italic" letter-spacing="2" text-anchor="middle" fill="#163F6E" transform="rotate(5.3 1996 2077.2)">р. Сысола</text></g>
+<g class="sym" data-ax="1906.5" data-ay="631.5"><text x="1906.5" y="643.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="34" font-weight="bold" font-style="italic" letter-spacing="2" text-anchor="middle" fill="#163F6E" transform="rotate(-3.6 1906.5 631.5)">р. Вычегда</text></g></g>
 <g id="streets"><path d="M2019.3 3085.2L1791.4 3656" fill="none" stroke="#BFB39C" stroke-width="33.7" stroke-linecap="butt"/>
 <path d="M825.7 2221.5L763.4 2098.5L750.1 2059L641.5 1324.7L404.2 831.8L400.1 816.8M787.6 2903.5L865.5 2608.8L901.9 2461.2L906.9 2384.5L894.8 2355.9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#C2AE8B" stroke-width="9"/>
 <path d="M1021.4 1840.2L985.2 1631.2L923.1 1533L916.6 1520.5L910 1496.6L909.4 1469.4L918.9 1336.7M1761.2 2781.2L1660.7 2737.3L1616.1 2714.3L1263.8 2418L1251.4 2399.7L1150.2 2213.6L1052 2023.4L1049 2012.3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#C2AE8B" stroke-width="9"/>
@@ -239,19 +247,19 @@ footer a{color:inherit}
 <path d="M-148 1904.2L-4.7 1871.8L48.3 1861.9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#F6F0DF" stroke-width="14" data-name="Элеваторная улица"/>
 <path d="M2455.6 3656L2628 3604" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#F6F0DF" stroke-width="14" data-name="улица Серова"/>
 <path d="M2537.2 3349.8L2548.3 3329.2L2540.8 3297.2L2543 3288.7L2550.2 3283L2628 3262.3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#F6F0DF" stroke-width="14" data-name="Лесозаводская улица"/></g>
-<g id="districts"><text x="1296.4" y="2106" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Центр</text><text x="1296.4" y="2106" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2E2820">Центр</text>
-<path d="M956.5 238.8L947.2 216.7L939.4 219.9L943.6 198.7L961.6 210.7L953.7 214L962.9 236.1Z" fill="#2E2820"/>
-<text x="984" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Орбита  3 км</text><text x="984" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Орбита  3 км</text>
-<path d="M1891.2 2696.9L1912.2 2708.5L1916.3 2701L1926.3 2720.2L1904.7 2722.1L1908.8 2714.6L1887.8 2703Z" fill="#2E2820"/>
-<text x="1939" y="2720.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Лесозавод  3 км</text><text x="1939" y="2720.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Лесозавод  3 км</text>
-<path d="M1743.8 1862.5L1767.7 1860.6L1767 1852.1L1785.9 1862.6L1769 1876L1768.3 1867.5L1744.4 1869.5Z" fill="#2E2820"/>
-<text x="1796" y="1875.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Краснозатонский  8 км</text><text x="1796" y="1875.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Краснозатонский  8 км</text>
-<path d="M1347.7 239L1339.6 216.4L1331.6 219.3L1336.9 198.3L1354.2 211.2L1346.2 214.1L1354.3 236.7Z" fill="#2E2820"/>
-<text x="1376.3" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Эжва  14 км</text><text x="1376.3" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Эжва  14 км</text>
-<text x="2183.1" y="2507.9" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Кируль</text><text x="2183.1" y="2507.9" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2E2820">Кируль</text>
-<path d="M239.1 2176.3L215.1 2176.7L215.2 2185.2L197 2173.5L214.8 2161.2L214.9 2169.7L238.9 2169.3Z" fill="#2E2820"/>
-<text x="251" y="2184.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Строитель  2 км</text><text x="251" y="2184.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Строитель  2 км</text></g>
-<g id="illustrations"><g id="illustration-10" data-id="10" class="illu" aria-hidden="true"><path d="M1155.3 2155.3L1155.3 2021.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="districts"><g class="sym" data-ax="1296.4" data-ay="2095"><text x="1296.4" y="2106" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Центр</text><text x="1296.4" y="2106" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2E2820">Центр</text></g>
+<g class="sym" data-ax="1094" data-ay="219"><path d="M956.5 238.8L947.2 216.7L939.4 219.9L943.6 198.7L961.6 210.7L953.7 214L962.9 236.1Z" fill="#2E2820"/>
+<text x="984" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Орбита  3 км</text><text x="984" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Орбита  3 км</text></g>
+<g class="sym" data-ax="2084" data-ay="2709.6"><path d="M1891.2 2696.9L1912.2 2708.5L1916.3 2701L1926.3 2720.2L1904.7 2722.1L1908.8 2714.6L1887.8 2703Z" fill="#2E2820"/>
+<text x="1939" y="2720.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Лесозавод  3 км</text><text x="1939" y="2720.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Лесозавод  3 км</text></g>
+<g class="sym" data-ax="2012.5" data-ay="1864.4"><path d="M1743.8 1862.5L1767.7 1860.6L1767 1852.1L1785.9 1862.6L1769 1876L1768.3 1867.5L1744.4 1869.5Z" fill="#2E2820"/>
+<text x="1796" y="1875.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Краснозатонский  8 км</text><text x="1796" y="1875.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Краснозатонский  8 км</text></g>
+<g class="sym" data-ax="1479.8" data-ay="219"><path d="M1347.7 239L1339.6 216.4L1331.6 219.3L1336.9 198.3L1354.2 211.2L1346.2 214.1L1354.3 236.7Z" fill="#2E2820"/>
+<text x="1376.3" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Эжва  14 км</text><text x="1376.3" y="230" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Эжва  14 км</text></g>
+<g class="sym" data-ax="2183.1" data-ay="2496.9"><text x="2183.1" y="2507.9" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Кируль</text><text x="2183.1" y="2507.9" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2E2820">Кируль</text></g>
+<g class="sym" data-ax="392.5" data-ay="2173.1"><path d="M239.1 2176.3L215.1 2176.7L215.2 2185.2L197 2173.5L214.8 2161.2L214.9 2169.7L238.9 2169.3Z" fill="#2E2820"/>
+<text x="251" y="2184.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" class="halo">Строитель  2 км</text><text x="251" y="2184.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" fill="#2E2820">Строитель  2 км</text></g></g>
+<g id="illustrations"><g id="illustration-10" data-id="10" class="illu sym" aria-hidden="true" data-ax="1155.3" data-ay="2189.3"><path d="M1155.3 2155.3L1155.3 2021.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(1107.1 1802.8) scale(1.1500)"><ellipse cx="100" cy="182" rx="88" ry="10" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -321,7 +329,7 @@ footer a{color:inherit}
     <path d="M166.5,82 H181.5 M166.5,87 H179 M166.5,92 H181.5 M166.5,97 H180 M166.5,102 H181.5 M166.5,107 H177 M166.5,112 H181.5 M166.5,117 H180 M166.5,122 H181.5 M166.5,127 H178 M166.5,132 H181.5 M166.5,137 H179 M166.5,142 H181.5 M166.5,147 H176 M166.5,152 H181.5" />
   </g>
 </g></g>
-<g id="illustration-08" data-id="8" class="illu" aria-hidden="true"><path d="M964.3 2031L964.3 1860.2" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-08" data-id="8" class="illu sym" aria-hidden="true" data-ax="964.3" data-ay="2065"><path d="M964.3 2031L964.3 1860.2" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(793.7 1641.7) scale(1.1500)"><ellipse cx="100" cy="182" rx="86" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -400,7 +408,7 @@ footer a{color:inherit}
     <circle cx="168" cy="171" r="3" fill="#D9483B" />
   </g>
 </g></g>
-<g id="illustration-13" data-id="13" class="illu" aria-hidden="true"><path d="M1115.7 2410.3L1072.6 2410.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-13" data-id="13" class="illu sym" aria-hidden="true" data-ax="1149.7" data-ay="2410.3"><path d="M1115.7 2410.3L1072.6 2410.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(854.1 2358.7) scale(1.1500)"><ellipse cx="98" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -505,7 +513,7 @@ footer a{color:inherit}
     <polygon points="145,169.5 157,169.5 161.5,166.5 149.5,166.5" fill="#FF6900" stroke-width="1.2" />
   </g>
 </g></g>
-<g id="illustration-06" data-id="6" class="illu" aria-hidden="true"><path d="M827.2 2335.3L805.1 2359.6" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-06" data-id="6" class="illu sym" aria-hidden="true" data-ax="850.2" data-ay="2310.2"><path d="M827.2 2335.3L805.1 2359.6" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(586.6 2352.7) scale(1.1500)"><ellipse cx="100" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -577,7 +585,7 @@ footer a{color:inherit}
     <path d="M100,154 C91.5,154 90,144 95,136.5 C96.5,140.5 99,141.5 100,141.5 C100,134.5 102.5,128 106,123.5 C106,130.5 111,135.5 111,141.5 C112,149 107.5,154 100,154 Z" fill="#F6B135" stroke-width="1.2" />
   </g>
 </g></g>
-<g id="illustration-07" data-id="7" class="illu" aria-hidden="true"><path d="M867.3 2037.8L800.7 1835.7" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-07" data-id="7" class="illu sym" aria-hidden="true" data-ax="877.9" data-ay="2070.1"><path d="M867.3 2037.8L800.7 1835.7" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(582.2 1617.2) scale(1.1500)"><ellipse cx="100" cy="182" rx="90" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -660,7 +668,7 @@ footer a{color:inherit}
     <circle cx="186" cy="168" r="6" fill="#7FB069" />
   </g>
 </g></g>
-<g id="illustration-12" data-id="12" class="illu" aria-hidden="true"><path d="M939.5 2287.7L773.4 2259.1" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-12" data-id="12" class="illu sym" aria-hidden="true" data-ax="973" data-ay="2293.5"><path d="M939.5 2287.7L773.4 2259.1" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(624.8 2110.5) scale(0.7820)"><ellipse cx="98" cy="181" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -765,7 +773,7 @@ footer a{color:inherit}
     <path d="M176,164 Q178,159 183,158" fill="none" stroke="#5E8D4E" />
   </g>
 </g></g>
-<g id="illustration-01" data-id="1" class="illu" aria-hidden="true"><path d="M1547.7 2245.4L1608.1 2116.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-01" data-id="1" class="illu sym" aria-hidden="true" data-ax="1489.7" data-ay="2268.5"><path d="M1547.7 2245.4L1608.1 2116.3" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(1596.6 1897.8) scale(1.1500)"><ellipse cx="96" cy="179" rx="86" ry="12" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -902,7 +910,7 @@ footer a{color:inherit}
     <circle cx="178" cy="143" r="6.5" fill="#5E8D4E" />
   </g>
 </g></g>
-<g id="illustration-03" data-id="3" class="illu" aria-hidden="true"><path d="M1431.9 2224.4L1431.9 2130.2" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-03" data-id="3" class="illu sym" aria-hidden="true" data-ax="1475.4" data-ay="2266"><path d="M1431.9 2224.4L1431.9 2130.2" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(1375.8 1911.7) scale(1.1500)"><ellipse cx="100" cy="182" rx="90" ry="10" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -1024,7 +1032,7 @@ footer a{color:inherit}
     <g stroke="#9A8F82" stroke-width="1.3"><circle cx="-12" cy="-49" r="8" fill="#26221F" /><path d="M-16,-49 A4,4 0 1 1 -12,-45 A2,2 0 1 1 -12,-49" fill="none" /><circle cx="12" cy="-50" r="8" fill="#26221F" /><path d="M8,-50 A4,4 0 1 1 12,-46 A2,2 0 1 1 12,-50" fill="none" /></g>
   </g>
 </g></g>
-<g id="illustration-04" data-id="4" class="illu" aria-hidden="true"><path d="M677.8 1880L573.8 1832.5" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-04" data-id="4" class="illu sym" aria-hidden="true" data-ax="708.7" data-ay="1894.1"><path d="M677.8 1880L573.8 1832.5" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(355.3 1614) scale(1.1500)"><ellipse cx="100" cy="182" rx="90" ry="10" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -1139,7 +1147,7 @@ footer a{color:inherit}
     </g>
   </g>
 </g></g>
-<g id="illustration-02" data-id="2" class="illu" aria-hidden="true"><path d="M297 2651.4L297 2621.7" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-02" data-id="2" class="illu sym" aria-hidden="true" data-ax="297" data-ay="2685.4"><path d="M297 2651.4L297 2621.7" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(182 2403.2) scale(1.1500)"><ellipse cx="96" cy="179" rx="86" ry="12" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -1304,7 +1312,7 @@ footer a{color:inherit}
     <circle cx="182" cy="139" r="5.5" fill="#7FB069" />
   </g>
 </g></g>
-<g id="illustration-05" data-id="5" class="illu" aria-hidden="true"><g transform="translate(1230.7 1511.5) scale(1.1500)"><ellipse cx="98" cy="182" rx="86" ry="11" fill="#3B2A1A" opacity="0.18" />
+<g id="illustration-05" data-id="5" class="illu sym" aria-hidden="true" data-ax="1366.9" data-ay="1784.9"><g transform="translate(1230.7 1511.5) scale(1.1500)"><ellipse cx="98" cy="182" rx="86" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
     <polygon points="14,118 112,118 130,107 32,107" fill="#8C9DAE" />
@@ -1378,7 +1386,7 @@ footer a{color:inherit}
     <circle cx="21" cy="170" r="7" fill="#7FB069" />
   </g>
 </g></g>
-<g id="illustration-09" data-id="9" class="illu" aria-hidden="true"><path d="M1916 2491.4L1939.4 2434.9" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
+<g id="illustration-09" data-id="9" class="illu sym" aria-hidden="true" data-ax="1903" data-ay="2522.8"><path d="M1916 2491.4L1939.4 2434.9" fill="none" stroke="#231F1B" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-opacity="0.8"/>
 <g transform="translate(1927.9 2216.4) scale(1.1500)"><ellipse cx="100" cy="182" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
   <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     
@@ -1469,7 +1477,7 @@ footer a{color:inherit}
     <circle cx="116" cy="175.5" r="3" fill="#F6B135" />
   </g>
 </g></g>
-<g id="illustration-11" data-id="11" class="illu" aria-hidden="true"><g transform="translate(994.5 1107) scale(1.1500)"><ellipse cx="100" cy="182" rx="82" ry="11" fill="#3B2A1A" opacity="0.18" />
+<g id="illustration-11" data-id="11" class="illu sym" aria-hidden="true" data-ax="1130.7" data-ay="1380.5"><g transform="translate(994.5 1107) scale(1.1500)"><ellipse cx="100" cy="182" rx="82" ry="11" fill="#3B2A1A" opacity="0.18" />
 
 <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
 <rect x="62" y="88.5" width="16" height="15" fill="#FFF8EC" />
@@ -1638,7 +1646,7 @@ footer a{color:inherit}
 <polygon points="134,178 169,158 169,152 134,172" fill="#85817A" />
 </g>
 </g></g>
-<g id="illustration-14" data-id="14" class="illu" aria-hidden="true"><g transform="translate(613.9 517.9) scale(1.1500)"><ellipse cx="100" cy="182" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
+<g id="illustration-14" data-id="14" class="illu sym" aria-hidden="true" data-ax="876.3" data-ay="742.6"><g transform="translate(613.9 517.9) scale(1.1500)"><ellipse cx="100" cy="182" rx="88" ry="11" fill="#3B2A1A" opacity="0.18" />
 
 <g stroke="#3B2A1A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
 <circle cx="22" cy="90" r="11" fill="#5E8D4E" />
@@ -1750,81 +1758,80 @@ footer a{color:inherit}
 <path d="M86,181 Q100,187 114,181 L116,186 Q100,192 84,186 Z" fill="#A7A39B" />
 </g>
 </g></g></g>
-
-<g id="markers"><g id="marker-01" data-id="1" class="marker" data-x="1533.3" data-y="2276.1" tabindex="0" role="button" aria-label="1. Панно на северную тематику — панно" style="--c:#FFE81A;--hi:#FFED4D"><path d="M1489.7 2268.5L1533.3 2276.1" stroke="#231F1B" stroke-width="3"/>
+<g id="markers"><g id="marker-01" data-id="1" class="marker sym" data-x="1533.3" data-y="2276.1" tabindex="0" role="button" aria-label="1. Панно на северную тематику — панно" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1489.7" data-ay="2268.5"><path d="M1489.7 2268.5L1533.3 2276.1" stroke="#231F1B" stroke-width="3"/>
 <circle cx="1489.7" cy="2268.5" r="10" fill="#FFFFFF" stroke="#231F1B" stroke-width="4"/>
 <circle class="hit" cx="1533.3" cy="2276.1" r="44" fill="transparent"/>
 <rect class="ring" x="1487.3" y="2230.1" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1501.3" y="2244.1" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1533.3" y="2289.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">1</text></g>
-<g id="marker-02" data-id="2" class="marker" data-x="297" data-y="2685.4" tabindex="0" role="button" aria-label="2. Панно на Коммунистической — панно" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="297" cy="2685.4" r="44" fill="transparent"/>
+<g id="marker-02" data-id="2" class="marker sym" data-x="297" data-y="2685.4" tabindex="0" role="button" aria-label="2. Панно на Коммунистической — панно" style="--c:#FFE81A;--hi:#FFED4D" data-ax="297" data-ay="2685.4"><circle class="hit" cx="297" cy="2685.4" r="44" fill="transparent"/>
 <rect class="ring" x="251" y="2639.4" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="265" y="2653.4" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="297" y="2698.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">2</text></g>
-<g id="marker-03" data-id="3" class="marker" data-x="1431.9" data-y="2258.4" tabindex="0" role="button" aria-label="3. Грибной переулок — улица" style="--c:#FFE81A;--hi:#FFED4D"><path d="M1475.4 2266L1431.9 2258.4" stroke="#231F1B" stroke-width="3"/>
+<g id="marker-03" data-id="3" class="marker sym" data-x="1431.9" data-y="2258.4" tabindex="0" role="button" aria-label="3. Грибной переулок — улица" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1475.4" data-ay="2266"><path d="M1475.4 2266L1431.9 2258.4" stroke="#231F1B" stroke-width="3"/>
 <circle class="hit" cx="1431.9" cy="2258.4" r="44" fill="transparent"/>
 <rect class="ring" x="1385.9" y="2212.4" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1399.9" y="2226.4" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1431.9" y="2271.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">3</text></g>
-<g id="marker-04" data-id="4" class="marker" data-x="708.7" data-y="1894.1" tabindex="0" role="button" aria-label="4. Анбур «Сыктывкар» — арт-объект" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="708.7" cy="1894.1" r="44" fill="transparent"/>
+<g id="marker-04" data-id="4" class="marker sym" data-x="708.7" data-y="1894.1" tabindex="0" role="button" aria-label="4. Анбур «Сыктывкар» — арт-объект" style="--c:#FFE81A;--hi:#FFED4D" data-ax="708.7" data-ay="1894.1"><circle class="hit" cx="708.7" cy="1894.1" r="44" fill="transparent"/>
 <rect class="ring" x="662.7" y="1848.1" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="676.7" y="1862.1" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="708.7" y="1907.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">4</text></g>
-<g id="marker-05" data-id="5" class="marker" data-x="1366.9" data-y="1784.9" tabindex="0" role="button" aria-label="5. Пожарная каланча — памятник архитектуры" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="1366.9" cy="1784.9" r="44" fill="transparent"/>
+<g id="marker-05" data-id="5" class="marker sym" data-x="1366.9" data-y="1784.9" tabindex="0" role="button" aria-label="5. Пожарная каланча — памятник архитектуры" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1366.9" data-ay="1784.9"><circle class="hit" cx="1366.9" cy="1784.9" r="44" fill="transparent"/>
 <rect class="ring" x="1320.9" y="1738.9" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1334.9" y="1752.9" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1366.9" y="1797.9" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">5</text></g>
-<g id="marker-06" data-id="6" class="marker" data-x="850.2" data-y="2310.2" tabindex="0" role="button" aria-label="6. Вечный огонь — мемориал" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="850.2" cy="2310.2" r="44" fill="transparent"/>
+<g id="marker-06" data-id="6" class="marker sym" data-x="850.2" data-y="2310.2" tabindex="0" role="button" aria-label="6. Вечный огонь — мемориал" style="--c:#FFE81A;--hi:#FFED4D" data-ax="850.2" data-ay="2310.2"><circle class="hit" cx="850.2" cy="2310.2" r="44" fill="transparent"/>
 <rect class="ring" x="804.2" y="2264.2" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="818.2" y="2278.2" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="850.2" y="2323.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">6</text></g>
-<g id="marker-07" data-id="7" class="marker" data-x="877.9" data-y="2070.1" tabindex="0" role="button" aria-label="7. Драмтеатр им. В. Савина — театр" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="877.9" cy="2070.1" r="44" fill="transparent"/>
+<g id="marker-07" data-id="7" class="marker sym" data-x="877.9" data-y="2070.1" tabindex="0" role="button" aria-label="7. Драмтеатр им. В. Савина — театр" style="--c:#FFE81A;--hi:#FFED4D" data-ax="877.9" data-ay="2070.1"><circle class="hit" cx="877.9" cy="2070.1" r="44" fill="transparent"/>
 <rect class="ring" x="831.9" y="2024.1" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="845.9" y="2038.1" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="877.9" y="2083.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">7</text></g>
-<g id="marker-08" data-id="8" class="marker" data-x="964.3" data-y="2065" tabindex="0" role="button" aria-label="8. Буква «О» — арт-объект" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="964.3" cy="2065" r="44" fill="transparent"/>
+<g id="marker-08" data-id="8" class="marker sym" data-x="964.3" data-y="2065" tabindex="0" role="button" aria-label="8. Буква «О» — арт-объект" style="--c:#FFE81A;--hi:#FFED4D" data-ax="964.3" data-ay="2065"><circle class="hit" cx="964.3" cy="2065" r="44" fill="transparent"/>
 <rect class="ring" x="918.3" y="2019" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="932.3" y="2033" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="964.3" y="2078" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">8</text></g>
-<g id="marker-09" data-id="9" class="marker" data-x="1903" data-y="2522.8" tabindex="0" role="button" aria-label="9. Оленевод у аэропорта — скульптура" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="1903" cy="2522.8" r="44" fill="transparent"/>
+<g id="marker-09" data-id="9" class="marker sym" data-x="1903" data-y="2522.8" tabindex="0" role="button" aria-label="9. Оленевод у аэропорта — скульптура" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1903" data-ay="2522.8"><circle class="hit" cx="1903" cy="2522.8" r="44" fill="transparent"/>
 <rect class="ring" x="1857" y="2476.8" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1871" y="2490.8" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1903" y="2535.8" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">9</text></g>
-<g id="marker-10" data-id="10" class="marker" data-x="1155.3" data-y="2189.3" tabindex="0" role="button" aria-label="10. Коми промысловый календарь — арт-объект" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="1155.3" cy="2189.3" r="44" fill="transparent"/>
+<g id="marker-10" data-id="10" class="marker sym" data-x="1155.3" data-y="2189.3" tabindex="0" role="button" aria-label="10. Коми промысловый календарь — арт-объект" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1155.3" data-ay="2189.3"><circle class="hit" cx="1155.3" cy="2189.3" r="44" fill="transparent"/>
 <rect class="ring" x="1109.3" y="2143.3" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1123.3" y="2157.3" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1155.3" y="2202.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">10</text></g>
-<g id="marker-11" data-id="11" class="marker" data-x="1130.7" data-y="1380.5" tabindex="0" role="button" aria-label="11. Стефановский собор — храм" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="1130.7" cy="1380.5" r="44" fill="transparent"/>
+<g id="marker-11" data-id="11" class="marker sym" data-x="1130.7" data-y="1380.5" tabindex="0" role="button" aria-label="11. Стефановский собор — храм" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1130.7" data-ay="1380.5"><circle class="hit" cx="1130.7" cy="1380.5" r="44" fill="transparent"/>
 <rect class="ring" x="1084.7" y="1334.5" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1098.7" y="1348.5" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1130.7" y="1393.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">11</text></g>
-<g id="marker-12" data-id="12" class="marker" data-x="973" data-y="2293.5" tabindex="0" role="button" aria-label="12. «Вкусно — и точка» — кафе" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="973" cy="2293.5" r="44" fill="transparent"/>
+<g id="marker-12" data-id="12" class="marker sym" data-x="973" data-y="2293.5" tabindex="0" role="button" aria-label="12. «Вкусно — и точка» — кафе" style="--c:#FFE81A;--hi:#FFED4D" data-ax="973" data-ay="2293.5"><circle class="hit" cx="973" cy="2293.5" r="44" fill="transparent"/>
 <rect class="ring" x="927" y="2247.5" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="941" y="2261.5" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="973" y="2306.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">12</text></g>
-<g id="marker-13" data-id="13" class="marker" data-x="1149.7" data-y="2410.3" tabindex="0" role="button" aria-label="13. Первая «Додо Пицца» — кафе" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="1149.7" cy="2410.3" r="44" fill="transparent"/>
+<g id="marker-13" data-id="13" class="marker sym" data-x="1149.7" data-y="2410.3" tabindex="0" role="button" aria-label="13. Первая «Додо Пицца» — кафе" style="--c:#FFE81A;--hi:#FFED4D" data-ax="1149.7" data-ay="2410.3"><circle class="hit" cx="1149.7" cy="2410.3" r="44" fill="transparent"/>
 <rect class="ring" x="1103.7" y="2364.3" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="1117.7" y="2378.3" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="1149.7" y="2423.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">13</text></g>
-<g id="marker-14" data-id="14" class="marker" data-x="876.3" data-y="742.6" tabindex="0" role="button" aria-label="14. Гимназия им. Пушкина — здание" style="--c:#FFE81A;--hi:#FFED4D"><circle class="hit" cx="876.3" cy="742.6" r="44" fill="transparent"/>
+<g id="marker-14" data-id="14" class="marker sym" data-x="876.3" data-y="742.6" tabindex="0" role="button" aria-label="14. Гимназия им. Пушкина — здание" style="--c:#FFE81A;--hi:#FFED4D" data-ax="876.3" data-ay="742.6"><circle class="hit" cx="876.3" cy="742.6" r="44" fill="transparent"/>
 <rect class="ring" x="830.3" y="696.6" width="92" height="92" rx="8.3" fill="none" stroke="#1A1714" stroke-width="6"/>
 <rect class="dot" x="844.3" y="710.6" width="64" height="64" rx="5.8" fill="#FFE81A" stroke="#1A1714" stroke-width="4"/>
 <text x="876.3" y="755.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1F1B16" pointer-events="none">14</text></g></g>
-<g id="labels"><g id="label-01" data-id="1"><text x="1582.3" y="2268.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="1582.3" dy="0">Панно на северную</tspan><tspan x="1582.3" dy="38">тематику</tspan></text><text x="1582.3" y="2268.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B"><tspan x="1582.3" dy="0">Панно на северную</tspan><tspan x="1582.3" dy="38">тематику</tspan></text></g>
-<g id="label-02" data-id="2"><text x="346" y="2677.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="346" dy="0">Панно</tspan><tspan x="346" dy="38">на Коммунистической</tspan></text><text x="346" y="2677.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B"><tspan x="346" dy="0">Панно</tspan><tspan x="346" dy="38">на Коммунистической</tspan></text></g>
-<g id="label-03" data-id="3"><path d="M1454.5 2233L1475.9 2209.1" stroke="#231F1B" stroke-width="2" stroke-opacity="0.7"/>
+<g id="labels"><g id="label-01" data-id="1" class="sym" data-ax="1489.7" data-ay="2268.5"><text x="1582.3" y="2268.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="1582.3" dy="0">Панно на северную</tspan><tspan x="1582.3" dy="38">тематику</tspan></text><text x="1582.3" y="2268.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B"><tspan x="1582.3" dy="0">Панно на северную</tspan><tspan x="1582.3" dy="38">тематику</tspan></text></g>
+<g id="label-02" data-id="2" class="sym" data-ax="297" data-ay="2685.4"><text x="346" y="2677.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="346" dy="0">Панно</tspan><tspan x="346" dy="38">на Коммунистической</tspan></text><text x="346" y="2677.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B"><tspan x="346" dy="0">Панно</tspan><tspan x="346" dy="38">на Коммунистической</tspan></text></g>
+<g id="label-03" data-id="3" class="sym" data-ax="1475.4" data-ay="2266"><path d="M1454.5 2233L1475.9 2209.1" stroke="#231F1B" stroke-width="2" stroke-opacity="0.7"/>
 <text x="1480.9" y="2220.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Грибной переулок</text><text x="1480.9" y="2220.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Грибной переулок</text></g>
-<g id="label-04" data-id="4"><text x="757.7" y="1905.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Анбур «Сыктывкар»</text><text x="757.7" y="1905.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Анбур «Сыктывкар»</text></g>
-<g id="label-05" data-id="5"><text x="1415.9" y="1796.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Пожарная каланча</text><text x="1415.9" y="1796.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Пожарная каланча</text></g>
-<g id="label-06" data-id="6"><text x="801.2" y="2321.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Вечный огонь</text><text x="801.2" y="2321.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Вечный огонь</text></g>
-<g id="label-07" data-id="7"><text x="828.9" y="2081.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Драмтеатр им. В. Савина</text><text x="828.9" y="2081.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Драмтеатр им. В. Савина</text></g>
-<g id="label-08" data-id="8"><text x="1013.3" y="2076.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Буква «О»</text><text x="1013.3" y="2076.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Буква «О»</text></g>
-<g id="label-09" data-id="9"><text x="1854" y="2534" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Оленевод у аэропорта</text><text x="1854" y="2534" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Оленевод у аэропорта</text></g>
-<g id="label-10" data-id="10"><text x="1106.3" y="2181.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="1106.3" dy="0">Коми промысловый</tspan><tspan x="1106.3" dy="38">календарь</tspan></text><text x="1106.3" y="2181.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B"><tspan x="1106.3" dy="0">Коми промысловый</tspan><tspan x="1106.3" dy="38">календарь</tspan></text></g>
-<g id="label-11" data-id="11"><text x="1179.7" y="1391.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Стефановский собор</text><text x="1179.7" y="1391.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Стефановский собор</text></g>
-<g id="label-12" data-id="12"><text x="1022" y="2304.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">«Вкусно — и точка»</text><text x="1022" y="2304.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">«Вкусно — и точка»</text></g>
-<g id="label-13" data-id="13"><text x="1198.7" y="2421.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Первая «Додо Пицца»</text><text x="1198.7" y="2421.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Первая «Додо Пицца»</text></g>
-<g id="label-14" data-id="14"><text x="925.3" y="753.8" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Гимназия им. Пушкина</text><text x="925.3" y="753.8" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Гимназия им. Пушкина</text></g></g>
+<g id="label-04" data-id="4" class="sym" data-ax="708.7" data-ay="1894.1"><text x="757.7" y="1905.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Анбур «Сыктывкар»</text><text x="757.7" y="1905.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Анбур «Сыктывкар»</text></g>
+<g id="label-05" data-id="5" class="sym" data-ax="1366.9" data-ay="1784.9"><text x="1415.9" y="1796.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Пожарная каланча</text><text x="1415.9" y="1796.1" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Пожарная каланча</text></g>
+<g id="label-06" data-id="6" class="sym" data-ax="850.2" data-ay="2310.2"><text x="801.2" y="2321.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Вечный огонь</text><text x="801.2" y="2321.4" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Вечный огонь</text></g>
+<g id="label-07" data-id="7" class="sym" data-ax="877.9" data-ay="2070.1"><text x="828.9" y="2081.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Драмтеатр им. В. Савина</text><text x="828.9" y="2081.3" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Драмтеатр им. В. Савина</text></g>
+<g id="label-08" data-id="8" class="sym" data-ax="964.3" data-ay="2065"><text x="1013.3" y="2076.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Буква «О»</text><text x="1013.3" y="2076.2" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Буква «О»</text></g>
+<g id="label-09" data-id="9" class="sym" data-ax="1903" data-ay="2522.8"><text x="1854" y="2534" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Оленевод у аэропорта</text><text x="1854" y="2534" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B">Оленевод у аэропорта</text></g>
+<g id="label-10" data-id="10" class="sym" data-ax="1155.3" data-ay="2189.3"><text x="1106.3" y="2181.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo"><tspan x="1106.3" dy="0">Коми промысловый</tspan><tspan x="1106.3" dy="38">календарь</tspan></text><text x="1106.3" y="2181.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" text-anchor="end" fill="#231F1B"><tspan x="1106.3" dy="0">Коми промысловый</tspan><tspan x="1106.3" dy="38">календарь</tspan></text></g>
+<g id="label-11" data-id="11" class="sym" data-ax="1130.7" data-ay="1380.5"><text x="1179.7" y="1391.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Стефановский собор</text><text x="1179.7" y="1391.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Стефановский собор</text></g>
+<g id="label-12" data-id="12" class="sym" data-ax="973" data-ay="2293.5"><text x="1022" y="2304.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">«Вкусно — и точка»</text><text x="1022" y="2304.7" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">«Вкусно — и точка»</text></g>
+<g id="label-13" data-id="13" class="sym" data-ax="1149.7" data-ay="2410.3"><text x="1198.7" y="2421.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Первая «Додо Пицца»</text><text x="1198.7" y="2421.5" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Первая «Додо Пицца»</text></g>
+<g id="label-14" data-id="14" class="sym" data-ax="876.3" data-ay="742.6"><text x="925.3" y="753.8" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#F7EEDC" stroke="#F7EEDC" stroke-width="10" stroke-linejoin="round" class="halo">Гимназия им. Пушкина</text><text x="925.3" y="753.8" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="32" font-style="italic" fill="#231F1B">Гимназия им. Пушкина</text></g></g>
 <g id="title"><rect x="177" y="177" width="736" height="300" rx="28" fill="#FFF9EC" fill-opacity="0.9" stroke="#B49F7B" stroke-width="2"/>
 <text x="233" y="307" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="96" font-weight="bold" fill="#231F1B">Сыктывкар</text>
 <text x="233" y="373" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="44" fill="#231F1B">Туристическая карта</text>
@@ -1887,6 +1894,7 @@ footer a{color:inherit}
 <rect x="1794" y="3171.6" width="36" height="36" rx="3.2" fill="#FFE81A" stroke="#1A1714" stroke-width="3"/>
 <text x="1812" y="3197.6" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1F1B16">14</text>
 <text x="1843" y="3199" font-family="'DejaVu Sans', Verdana, 'PT Sans', Arial, sans-serif" font-size="26" fill="#231F1B">Гимназия им. Пушкина</text></g></svg>
+    <div class="dyn-scale" id="dyn-scale" aria-hidden="true"><i></i><span></span></div>
     <div class="map-tools" role="group" aria-label="Масштаб карты">
       <button type="button" data-zoom="in" aria-label="Приблизить">+</button>
       <button type="button" data-zoom="out" aria-label="Отдалить">−</button>
@@ -2040,7 +2048,7 @@ footer a{color:inherit}
     </ol>
   </aside>
 </main>
-<footer>Картографическая основа © <a href="https://www.openstreetmap.org/copyright">участники OpenStreetMap</a> (ODbL). Координаты приблизительные, ±200 м. Сгенерировано 22.10.2026.</footer>
+<footer>Картографическая основа © <a href="https://www.openstreetmap.org/copyright">участники OpenStreetMap</a> (ODbL). Координаты приблизительные, ±200 м. Сгенерировано 23.10.2026.</footer>
 <p class="sr-only" aria-live="polite" id="announce"></p>
 <script type="application/json" id="attractions-data">[{"id": 1, "name": "Панно на северную тематику", "category": "панно", "address": "ул. Куратова, 17", "lat": 61.6672, "lon": 50.8405, "x": 1533.3, "y": 2276.1}, {"id": 2, "name": "Панно на Коммунистической", "category": "панно", "address": "ул. Коммунистическая, 35, 37, 39, 43, 45, 47", "lat": 61.6622, "lon": 50.8104, "x": 297.0, "y": 2685.4}, {"id": 3, "name": "Грибной переулок", "category": "улица", "address": "ул. Куратова, 17 (между корпусами дома)", "lat": 61.66723, "lon": 50.84014, "x": 1431.9, "y": 2258.4}, {"id": 4, "name": "Анбур «Сыктывкар»", "category": "арт-объект", "address": "перекрёсток ул. Карла Маркса и ул. Орджоникидзе", "lat": 61.67169, "lon": 50.82079, "x": 708.7, "y": 1894.1}, {"id": 5, "name": "Пожарная каланча", "category": "памятник архитектуры", "address": "ул. Советская, 9", "lat": 61.673, "lon": 50.8374, "x": 1366.9, "y": 1784.9}, {"id": 6, "name": "Вечный огонь", "category": "мемориал", "address": "мемориал «Вечная слава», ул. Карла Маркса", "lat": 61.6667, "lon": 50.82436, "x": 850.2, "y": 2310.2}, {"id": 7, "name": "Драмтеатр им. В. Савина", "category": "театр", "address": "ул. Первомайская, 56", "lat": 61.66958, "lon": 50.82506, "x": 877.9, "y": 2070.1}, {"id": 8, "name": "Буква «О»", "category": "арт-объект", "address": "ул. Первомайская, у пересечения с ул. Бабушкина", "lat": 61.66964, "lon": 50.82724, "x": 964.3, "y": 2065.0}, {"id": 9, "name": "Оленевод у аэропорта", "category": "скульптура", "address": "площадь у аэровокзала, ул. Советская", "lat": 61.66415, "lon": 50.85093, "x": 1903.0, "y": 2522.8}, {"id": 10, "name": "Коми промысловый календарь", "category": "арт-объект", "address": "ул. Интернациональная, у ЦУМа", "lat": 61.66815, "lon": 50.83206, "x": 1155.3, "y": 2189.3}, {"id": 11, "name": "Стефановский собор", "category": "храм", "address": "ул. Свободы, 60", "lat": 61.67785, "lon": 50.83144, "x": 1130.7, "y": 1380.5}, {"id": 12, "name": "«Вкусно — и точка»", "category": "кафе", "address": "ул. Первомайская, 72 (Дом быта)", "lat": 61.6669, "lon": 50.82746, "x": 973.0, "y": 2293.5}, {"id": 13, "name": "Первая «Додо Пицца»", "category": "кафе", "address": "ул. Первомайская, 85", "lat": 61.6655, "lon": 50.83192, "x": 1149.7, "y": 2410.3}, {"id": 14, "name": "Гимназия им. Пушкина", "category": "здание", "address": "ул. Петрозаводская, 4", "lat": 61.6855, "lon": 50.82502, "x": 876.3, "y": 742.6}]</script>
 <script>
@@ -2064,15 +2072,43 @@ footer a{color:inherit}
     return {x: Math.min(Math.max(v.x, 0), FULL.w - w), y: Math.min(Math.max(v.y, 0), FULL.h - h), w, h};
   };
   const scale = () => { const r = svg.getBoundingClientRect(); return Math.min(r.width / vb.w, r.height / vb.h) || 1; };
-  function sizeHits() {  // зона нажатия маркера — не меньше 44×44 px на экране
-    const r = Math.max(44, 22 / scale());
+  // Значки, рисунки и подписи растут вместе с картой, пока подпись не станет читаемой
+  // (SYM_PX экранных px на единицу SVG), дальше их размер на экране не меняется —
+  // при зуме «раздвигается» только карта. Каждая группа .sym масштабируется вокруг своего якоря.
+  const SYM_PX = 0.45, PX_PER_M = 0.74824;
+  const syms = [...svg.querySelectorAll(".sym")].map(g => ({g, ax: +g.dataset.ax, ay: +g.dataset.ay}));
+  const dynScale = document.getElementById("dyn-scale");
+  let symK = 1;
+  function updateSymbols(k) {
+    const f = Math.min(1, SYM_PX / k);
+    if (f === 1 && symK === 1) return;
+    symK = f;
+    for (const s of syms) {
+      if (f === 1) s.g.removeAttribute("transform");
+      else s.g.setAttribute("transform", `translate(${s.ax} ${s.ay}) scale(${f.toFixed(4)}) translate(${-s.ax} ${-s.ay})`);
+    }
+  }
+  function updateScaleBar(k) {  // живая линейка масштаба вместо печатной, которая при зуме скрыта
+    const pxPerM = PX_PER_M * k;
+    let d = 20;
+    for (const n of [20, 50, 100, 200, 300, 500, 1000, 2000]) if (n * pxPerM <= 130) d = n;
+    dynScale.querySelector("i").style.width = `${(d * pxPerM).toFixed(0)}px`;
+    dynScale.querySelector("span").textContent = d >= 1000 ? `${d / 1000} км` : `${d} м`;
+  }
+  function sizeHits(k) {  // зона нажатия маркера — не меньше 44×44 px на экране
+    const r = Math.max(44, 22 / (k * symK));
     svg.querySelectorAll(".hit").forEach(c => c.setAttribute("r", r.toFixed(1)));
   }
   function apply(v) {
     vb = v;
     svg.setAttribute("viewBox", `${v.x.toFixed(1)} ${v.y.toFixed(1)} ${v.w.toFixed(1)} ${v.h.toFixed(1)}`);
-    svg.classList.toggle("is-zoomed", v.w < FULL.w - 1);
-    sizeHits();
+    const zoomed = v.w < FULL.w - 1;
+    svg.classList.toggle("is-zoomed", zoomed);
+    pane.classList.toggle("is-zoomed", zoomed);
+    const k = scale();
+    updateSymbols(k);
+    updateScaleBar(k);
+    sizeHits(k);
   }
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   function animateTo(target, ms = 600) {
@@ -2094,13 +2130,18 @@ footer a{color:inherit}
     const p = svg.createSVGPoint(); p.x = cx; p.y = cy;
     return p.matrixTransform(svg.getScreenCTM().inverse());
   }
+  // где маркер сейчас: его группа отмасштабирована вокруг якоря (истинной точки)
+  const markerAt = g => {
+    const ax = +g.dataset.ax, ay = +g.dataset.ay;
+    return [ax + (+g.dataset.x - ax) * symK, ay + (+g.dataset.y - ay) * symK];
+  };
   function nearest(p) {  // ближайший маркер в пределах зоны нажатия — работает и при перекрытии зон
     let best = null, bd = Infinity;
     markers.forEach((g, id) => {
-      const d = Math.hypot(+g.dataset.x - p.x, +g.dataset.y - p.y);
+      const [x, y] = markerAt(g), d = Math.hypot(x - p.x, y - p.y);
       if (d < bd) { bd = d; best = id; }
     });
-    return bd <= Math.max(48, 26 / scale()) ? best : null;
+    return bd <= Math.max(48 * symK, 26 / scale()) ? best : null;
   }
   function select(id, from) {
     if (active) { markers.get(active)?.classList.remove("is-active"); cards.get(active)?.classList.remove("is-active"); }
@@ -2117,7 +2158,7 @@ footer a{color:inherit}
     } else {
       const r = pane.getBoundingClientRect();
       if (r.bottom < 120 || r.top > innerHeight - 120) pane.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
-      focusOn(+g.dataset.x, +g.dataset.y);
+      focusOn(+g.dataset.ax, +g.dataset.ay);
     }
     history.replaceState(null, "", "#p" + id);
   }
@@ -2194,8 +2235,8 @@ footer a{color:inherit}
     else animateTo(FULL);
   }));
   document.addEventListener("keydown", e => { if (e.key === "Escape") animateTo(FULL); });
-  addEventListener("resize", sizeHits);
-  sizeHits();
+  addEventListener("resize", () => apply(vb));
+  apply(vb);
   const m = location.hash.match(/^#p(\d+)$/);
   if (m && markers.has(m[1])) select(m[1], "list");
 })();

@@ -70,6 +70,10 @@ BOOKLET_PDF = ROOT / "syktyvkar_booklet.pdf"  # положите сюда свё
 # og:url / og:image — соцсети не понимают относительные ссылки. Пусто → относительные.
 SITE_URL = ""
 
+# HTML-карта: значки, рисунки и подписи растут при зуме только до этого масштаба
+# (экранных px на единицу SVG: подпись 32 ед. → ~14 px), дальше их размер на экране постоянный.
+WEB_SYMBOL_MAX_SCALE = 0.45
+
 # ─────────────────────────────── страница ───────────────────────────────
 
 PAGE_W, PAGE_H = 2480, 3508  # A4 портрет, 300 DPI
@@ -1459,11 +1463,23 @@ def marker_glyph(x: float, y: float, r: float, fill: str, edge: str, stroke: flo
     return el("circle", {"class": cls, "cx": x, "cy": y, "r": r, "fill": fill, "stroke": edge, "stroke-width": stroke})
 
 
-def layer(lid: str, title: str, children, web: bool) -> str:
+def layer(lid: str, title: str, children, web: bool, cls: str | None = None) -> str:
     attrs = {"id": lid}
-    if not web:
+    if web:
+        attrs["class"] = cls
+    else:
         attrs.update({"inkscape:groupmode": "layer", "inkscape:label": title})
     return el("g", attrs, children)
+
+
+def sym_attrs(ax: float, ay: float, web: bool, attrs: dict | None = None) -> dict:
+    """Атрибуты группы-«значка» (маркер, подпись, рисунок). В HTML скрипт при зуме
+    масштабирует такую группу вокруг якоря (ax, ay), чтобы её размер на экране не рос."""
+    attrs = dict(attrs or {})
+    if web:
+        attrs["class"] = f"{attrs.get('class') or ''} sym".strip()
+        attrs["data-ax"], attrs["data-ay"] = fmt(ax), fmt(ay)
+    return attrs
 
 
 def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
@@ -1493,8 +1509,9 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     rivers += [el("path", {"d": d_rings(r), "fill": WATER, "fill-rule": "evenodd", "stroke": WATER,
                            "stroke-width": 1.5, "stroke-linejoin": "round"}) for r in sc.water]
     for rl in sc.river_labels:
-        rivers.append(svg_text(rl["x"], rl["y"] + 12, rl["name"], 34, italic=True, bold=RIVER_LABEL_BOLD,
-                               fill=WATER_TEXT, anchor="middle", spacing=2, extra={"transform": f"rotate({fmt(rl['angle'])} {fmt(rl['x'])} {fmt(rl['y'])})"}))
+        rivers.append(el("g", sym_attrs(rl["x"], rl["y"], web), svg_text(
+            rl["x"], rl["y"] + 12, rl["name"], 34, italic=True, bold=RIVER_LABEL_BOLD, fill=WATER_TEXT,
+            anchor="middle", spacing=2, extra={"transform": f"rotate({fmt(rl['angle'])} {fmt(rl['x'])} {fmt(rl['y'])})"})))
     out.append(layer("rivers", "Реки", rivers, web))
 
     # ── районы: схематичные границы + подписи
@@ -1505,9 +1522,10 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     for dl in sc.district_labels:
         b = dl["box"]
         under = DISTRICT_HALO or base_color_at(sc, b.cx, b.cy)  # по умолчанию halo в цвет подложки
+        parts = []
         if dl["edge"] is None:
-            dist.append(haloed(b.cx, b.y1 - 11, dl["name"], DISTRICT_SIZE, fill=DISTRICT_TEXT, anchor="middle",
-                               bold=DISTRICT_BOLD, spacing=DISTRICT_SPACING or None, halo_color=under, halo_w=4))
+            parts.append(haloed(b.cx, b.y1 - 11, dl["name"], DISTRICT_SIZE, fill=DISTRICT_TEXT, anchor="middle",
+                                bold=DISTRICT_BOLD, spacing=DISTRICT_SPACING or None, halo_color=under, halo_w=4))
         else:
             # треугольник-стрелка в сторону района; вершины считаем сами — rotate() на path
             # cairosvg отрисовывает неверно
@@ -1517,9 +1535,10 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
             # стрелка с древком: (вдоль, поперёк) в локальных координатах
             shape = [(-20, -3.5), (4, -3.5), (4, -12), (22, 0), (4, 12), (4, 3.5), (-20, 3.5)]
             arrow = [(ax + u * ux + v * px, ay + u * uy + v * py) for u, v in shape]
-            dist.append(el("path", {"d": d_line(arrow) + "Z", "fill": DISTRICT_TEXT}))
-            dist.append(haloed(b.x0 + 54, b.y1 - 11, dl["name"], DISTRICT_SIZE, fill=DISTRICT_TEXT, bold=DISTRICT_BOLD,
-                               spacing=DISTRICT_SPACING * 0.6 or None, halo_color=under, halo_w=4))
+            parts.append(el("path", {"d": d_line(arrow) + "Z", "fill": DISTRICT_TEXT}))
+            parts.append(haloed(b.x0 + 54, b.y1 - 11, dl["name"], DISTRICT_SIZE, fill=DISTRICT_TEXT, bold=DISTRICT_BOLD,
+                                spacing=DISTRICT_SPACING * 0.6 or None, halo_color=under, halo_w=4))
+        dist.append(el("g", sym_attrs(b.cx, b.cy, web), parts))
     districts_layer = layer("districts", "Районы", dist, web)  # кладётся поверх улиц
 
     # ── улицы: второстепенные, ж/д, ВПП, магистрали (сначала все окантовки, потом заливки)
@@ -1547,6 +1566,10 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     out.append(layer("streets", "Улицы", st, web))
     out.append(districts_layer)
 
+    # Якорь «значков» точки — её истинное место: маркер, подпись и рисунок при зуме в HTML
+    # масштабируются вокруг него вместе, как одно целое.
+    anchors = {a["id"]: a["true_xy"] for a in data}
+
     if sc.illustrations:
         ills = []
         for it in sc.illustrations:
@@ -1564,7 +1587,7 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
             attrs = {"id": f"illustration-{it['id']:02d}", "data-id": it["id"]}
             if web:
                 attrs.update({"class": "illu", "aria-hidden": "true"})
-            ills.append(el("g", attrs, g))
+            ills.append(el("g", sym_attrs(*anchors[it["id"]], web, attrs), g))
         out.append(layer("illustrations", "Рисунки объектов", ills, web))
 
     # ── «Вы здесь» (в HTML — с пульсацией)
@@ -1576,7 +1599,7 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     anchor = "middle" if abs(yb.cx - yx) < 2 else ("end" if yb.x1 <= yx else "start")
     tx = yb.cx if anchor == "middle" else (yb.x1 - HALO_W if anchor == "end" else yb.x0 + HALO_W)
     yah.append(haloed(tx, yb.y1 - 10, "ВЫ ЗДЕСЬ", 30, bold=True, fill=YAH_RED, anchor=anchor))
-    out.append(layer("you-are-here", "Вы здесь", yah, web))
+    out.append(layer("you-are-here", "Вы здесь", el("g", sym_attrs(yx, yy, web), yah), web))
 
     # ── маркеры
     mk = []
@@ -1603,7 +1626,7 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
             attrs.update({"class": "marker", "data-x": fmt(x), "data-y": fmt(y), "tabindex": 0, "role": "button",
                           "aria-label": f"{a['id']}. {a['name']} — {a['category']}",
                           "style": f"--c:{fill};--hi:{brighter(fill)}"})
-        mk.append(el("g", attrs, g))
+        mk.append(el("g", sym_attrs(tx_, ty_, web, attrs), g))
     out.append(layer("markers", "Маркеры", mk, web))
 
     # ── подписи
@@ -1626,7 +1649,7 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
             g.append(el("path", {"d": d_line([(sx, sy), (ex, b.cy)]), "stroke": LABEL_TEXT,
                                  "stroke-width": 2, "stroke-opacity": 0.7}))
         g.append(haloed(tx, first, lab.lines, LABEL_SIZE, anchor=anchor, line_h=LABEL_LINE_H, italic=LABEL_ITALIC))
-        lb.append(el("g", {"id": f"label-{lab.aid:02d}", "data-id": lab.aid}, g))
+        lb.append(el("g", sym_attrs(*anchors[lab.aid], web, {"id": f"label-{lab.aid:02d}", "data-id": lab.aid}), g))
     out.append(layer("labels", "Подписи", lb, web))
 
     # ── заголовок
@@ -2040,6 +2063,14 @@ footer a{color:inherit}
 .marker.is-active .ring,.marker:focus-visible .ring{opacity:1}
 .hit{fill:transparent}
 .illu{cursor:pointer}
+/* при зуме оформление печатного листа (заголовок, легенда, линейка) убираем — оно бы росло */
+#map-svg :is(#title,#north,#scalebar,#legend,#index){transition:opacity .25s ease}
+#map-svg.is-zoomed :is(#title,#north,#scalebar,#legend,#index){opacity:0;pointer-events:none}
+.dyn-scale{position:absolute;left:12px;bottom:12px;display:none;align-items:center;gap:8px;padding:6px 10px;
+  border:1px solid var(--line);border-radius:10px;background:rgba(255,253,248,.94);color:var(--ink);font-size:13px;
+  box-shadow:0 1px 4px rgba(42,38,34,.18)}
+.dyn-scale i{display:block;height:7px;border:2px solid var(--ink);border-top:0}
+.map-pane.is-zoomed .dyn-scale{display:flex}
 .yah-pulse{transform-box:fill-box;transform-origin:center;animation:yah 1.8s ease-out infinite;pointer-events:none}
 @keyframes yah{0%{transform:scale(1);opacity:.55}100%{transform:scale(3.4);opacity:0}}
 @media (max-width:860px){
@@ -2062,6 +2093,7 @@ footer a{color:inherit}
 <main class="layout">
   <section class="map-pane" id="map" aria-label="Карта">
     __SVG__
+    <div class="dyn-scale" id="dyn-scale" aria-hidden="true"><i></i><span></span></div>
     <div class="map-tools" role="group" aria-label="Масштаб карты">
       <button type="button" data-zoom="in" aria-label="Приблизить">+</button>
       <button type="button" data-zoom="out" aria-label="Отдалить">−</button>
@@ -2100,15 +2132,43 @@ __CARDS__
     return {x: Math.min(Math.max(v.x, 0), FULL.w - w), y: Math.min(Math.max(v.y, 0), FULL.h - h), w, h};
   };
   const scale = () => { const r = svg.getBoundingClientRect(); return Math.min(r.width / vb.w, r.height / vb.h) || 1; };
-  function sizeHits() {  // зона нажатия маркера — не меньше 44×44 px на экране
-    const r = Math.max(44, 22 / scale());
+  // Значки, рисунки и подписи растут вместе с картой, пока подпись не станет читаемой
+  // (SYM_PX экранных px на единицу SVG), дальше их размер на экране не меняется —
+  // при зуме «раздвигается» только карта. Каждая группа .sym масштабируется вокруг своего якоря.
+  const SYM_PX = __SYM_PX__, PX_PER_M = __PX_PER_M__;
+  const syms = [...svg.querySelectorAll(".sym")].map(g => ({g, ax: +g.dataset.ax, ay: +g.dataset.ay}));
+  const dynScale = document.getElementById("dyn-scale");
+  let symK = 1;
+  function updateSymbols(k) {
+    const f = Math.min(1, SYM_PX / k);
+    if (f === 1 && symK === 1) return;
+    symK = f;
+    for (const s of syms) {
+      if (f === 1) s.g.removeAttribute("transform");
+      else s.g.setAttribute("transform", `translate(${s.ax} ${s.ay}) scale(${f.toFixed(4)}) translate(${-s.ax} ${-s.ay})`);
+    }
+  }
+  function updateScaleBar(k) {  // живая линейка масштаба вместо печатной, которая при зуме скрыта
+    const pxPerM = PX_PER_M * k;
+    let d = 20;
+    for (const n of [20, 50, 100, 200, 300, 500, 1000, 2000]) if (n * pxPerM <= 130) d = n;
+    dynScale.querySelector("i").style.width = `${(d * pxPerM).toFixed(0)}px`;
+    dynScale.querySelector("span").textContent = d >= 1000 ? `${d / 1000} км` : `${d} м`;
+  }
+  function sizeHits(k) {  // зона нажатия маркера — не меньше 44×44 px на экране
+    const r = Math.max(44, 22 / (k * symK));
     svg.querySelectorAll(".hit").forEach(c => c.setAttribute("r", r.toFixed(1)));
   }
   function apply(v) {
     vb = v;
     svg.setAttribute("viewBox", `${v.x.toFixed(1)} ${v.y.toFixed(1)} ${v.w.toFixed(1)} ${v.h.toFixed(1)}`);
-    svg.classList.toggle("is-zoomed", v.w < FULL.w - 1);
-    sizeHits();
+    const zoomed = v.w < FULL.w - 1;
+    svg.classList.toggle("is-zoomed", zoomed);
+    pane.classList.toggle("is-zoomed", zoomed);
+    const k = scale();
+    updateSymbols(k);
+    updateScaleBar(k);
+    sizeHits(k);
   }
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   function animateTo(target, ms = 600) {
@@ -2130,13 +2190,18 @@ __CARDS__
     const p = svg.createSVGPoint(); p.x = cx; p.y = cy;
     return p.matrixTransform(svg.getScreenCTM().inverse());
   }
+  // где маркер сейчас: его группа отмасштабирована вокруг якоря (истинной точки)
+  const markerAt = g => {
+    const ax = +g.dataset.ax, ay = +g.dataset.ay;
+    return [ax + (+g.dataset.x - ax) * symK, ay + (+g.dataset.y - ay) * symK];
+  };
   function nearest(p) {  // ближайший маркер в пределах зоны нажатия — работает и при перекрытии зон
     let best = null, bd = Infinity;
     markers.forEach((g, id) => {
-      const d = Math.hypot(+g.dataset.x - p.x, +g.dataset.y - p.y);
+      const [x, y] = markerAt(g), d = Math.hypot(x - p.x, y - p.y);
       if (d < bd) { bd = d; best = id; }
     });
-    return bd <= Math.max(48, 26 / scale()) ? best : null;
+    return bd <= Math.max(48 * symK, 26 / scale()) ? best : null;
   }
   function select(id, from) {
     if (active) { markers.get(active)?.classList.remove("is-active"); cards.get(active)?.classList.remove("is-active"); }
@@ -2153,7 +2218,7 @@ __CARDS__
     } else {
       const r = pane.getBoundingClientRect();
       if (r.bottom < 120 || r.top > innerHeight - 120) pane.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
-      focusOn(+g.dataset.x, +g.dataset.y);
+      focusOn(+g.dataset.ax, +g.dataset.ay);
     }
     history.replaceState(null, "", "#p" + id);
   }
@@ -2230,8 +2295,8 @@ __CARDS__
     else animateTo(FULL);
   }));
   document.addEventListener("keydown", e => { if (e.key === "Escape") animateTo(FULL); });
-  addEventListener("resize", sizeHits);
-  sizeHits();
+  addEventListener("resize", () => apply(vb));
+  apply(vb);
   const m = location.hash.match(/^#p(\d+)$/);
   if (m && markers.has(m[1])) select(m[1], "list");
 })();
@@ -2293,6 +2358,8 @@ def render_html(sc: Scene, svg_web: str, photos: dict, pdf_href: str | None) -> 
         "__JSON__": json.dumps(payload, ensure_ascii=False).replace("</", "<\\/"),
         "__PAGE_W__": str(PAGE_W),
         "__PAGE_H__": str(PAGE_H),
+        "__SYM_PX__": str(WEB_SYMBOL_MAX_SCALE),
+        "__PX_PER_M__": f"{sc.proj.scale:.5f}",
     }
     out = HTML_TEMPLATE
     for k, v in rep.items():
@@ -2345,7 +2412,7 @@ def self_check(sc: Scene, svg_print: str, html_text: str, legend_count: int, png
     root = ET.fromstring(svg_print.split("?>", 1)[1])
     on_map = sum(1 for g in root.iter(f"{ns}g") if (g.get("id") or "").startswith("marker-"))
     m = re.search(r'<svg[^>]*id="map-svg"[\s\S]*?</svg>', html_text)
-    html_markers = len(re.findall(r'class="marker"', m.group(0))) if m else 0
+    html_markers = len(re.findall(r'class="marker\b', m.group(0))) if m else 0
     html_cards = len(re.findall(r'<li class="card"', html_text))
     n = len(sc.data)
     attr_c, dist_c = label_contrasts(sc)
