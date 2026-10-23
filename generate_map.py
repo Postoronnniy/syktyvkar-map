@@ -59,6 +59,7 @@ ROOT = Path(__file__).resolve().parent
 DATA_FILE = ROOT / "attractions.json"
 PHOTOS_DIR = ROOT / "photos"
 GEO_CACHE = ROOT / "geo" / "syktyvkar_osm.json"
+BUILDINGS_RAW = ROOT / "geo" / "syktyvkar_buildings_raw.json"
 OUT_SVG = ROOT / "syktyvkar_map.svg"
 OUT_PNG = ROOT / "syktyvkar_map.png"
 OUT_LEGEND = ROOT / "attractions_legend.png"
@@ -108,6 +109,8 @@ FALLBACK_COLOR = "#455A64"
 
 # Подложка — пастель с референса: песочная суша, кремовые улицы с тёмной окантовкой.
 LAND = "#EDDDBB"
+BUILDING = "#CFB095"        # застройка (дома) — теплее суши, читается на обоих стилях
+BUILDING_EDGE = "#8F7C60"   # контур домов
 WATER = "#A8D5E2"
 WATER_EDGE = "#7FB6C8"
 WATER_TEXT = "#245A6C"
@@ -228,6 +231,7 @@ GEO_BBOX = (61.615, 50.72, 61.725, 50.93)  # юг, запад, север, во�
 
 ILLUSTRATIONS_DIR = ROOT / "illustrations"
 SHOW_ILLUSTRATIONS = True  # мультяшные рисунки объектов на карте (как на референсе)
+SHOW_BUILDINGS = True      # детальная застройка (дома) из geo/syktyvkar_buildings_raw.json
 ILLU_SIZE = 230            # px, длинная сторона рисунка на карте (≈19 мм в печати)
 ILLU_MAX_DIST = 660        # дальше от своего номера рисунок не уводим
 SVG_NS = "http://www.w3.org/2000/svg"
@@ -909,6 +913,23 @@ def load_geo(args) -> dict:
     return cache
 
 
+def load_buildings() -> list:
+    """Разбирает сырой кеш зданий (Overpass out geom) в список колец (lat, lon)."""
+    if not BUILDINGS_RAW.exists():
+        return []
+    elements = json.loads(BUILDINGS_RAW.read_text("utf-8"))
+    rings = []
+    for e in elements:
+        g = [p for p in e.get("geometry") or [] if p]
+        if len(g) < 3:
+            continue
+        pts = [(p["lat"], p["lon"]) for p in g]
+        if pts[0] != pts[-1]:  # закрываем незамкнутые контуры
+            pts = pts + [pts[0]]
+        rings.append(pts)
+    return rings
+
+
 # ═══════════════════════════════ сцена (раскладка) ═══════════════════════════════
 
 @dataclass
@@ -940,6 +961,7 @@ class Scene:
     forests: list = field(default_factory=list)
     rivers: list = field(default_factory=list)      # [(name, [line_px, …])]
     river_labels: list = field(default_factory=list)
+    buildings: list = field(default_factory=list)   # [[ring_px, …], …]
     streets_major: list = field(default_factory=list)  # [(name, [line_px, …])]
     streets_minor: list = field(default_factory=list)
     rails: list = field(default_factory=list)
@@ -1070,6 +1092,16 @@ def build_scene(meta: dict, data: list[dict], geo: dict, typo: Typo) -> Scene:
     sc.rivers = [(r["name"], lines(r["lines"])) for r in geo.get("rivers", [])]
     sc.rails = lines(geo.get("rails", []), tol=1.5)
     sc.runways = lines(geo.get("runways", []))
+
+    # ── дома: кольца из сырого кеша зданий, проецируем и упрощаем
+    if SHOW_BUILDINGS:
+        for ring in load_buildings():
+            c = clip_ring(proj.line(ring), CLIP_RECT)
+            if len(c) < 3:
+                continue
+            c = dp_simplify(c + [c[0]], 0.8)[:-1]
+            if len(c) >= 3 and ring_area(c) >= 12:
+                sc.buildings.append(c)
 
     # ── улицы: не больше MAX_STREETS. Магистрали — по длине в кадре; остальные —
     # сначала те, что упомянуты в адресах точек, затем самые длинные рядом с маркерами.
@@ -1495,6 +1527,14 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     parks = [el("path", {"d": d_rings(r), "fill": FOREST, "fill-rule": "evenodd"}) for r in sc.forests]
     parks += [el("path", {"d": d_rings(r), "fill": PARK, "fill-rule": "evenodd"}) for r in sc.parks]
     out.append(layer("parks", "Парки и леса", parks, web))
+
+    # ── дома (детальная застройка): под реками, улицы кладутся выше
+    if SHOW_BUILDINGS and sc.buildings:
+        build_el = []
+        build_el += [el("path", {"d": d_rings([r]), "fill": "none", "stroke": BUILDING_EDGE, "stroke-width": 2,
+                                 "stroke-linejoin": "round"}) for r in sc.buildings]
+        build_el += [el("path", {"d": d_rings([r]), "fill": BUILDING, "fill-rule": "evenodd", "stroke": "none"}) for r in sc.buildings]
+        out.append(layer("buildings", "Дома", build_el, web))
 
     # ── реки: осевые линии (видны там, где нет полигона), сверху полигоны воды
     rivers = []
