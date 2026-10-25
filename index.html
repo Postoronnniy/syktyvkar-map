@@ -167,8 +167,8 @@ footer a{color:inherit}
   box-shadow:0 24px 80px rgba(0,0,0,.4);border:3px solid #E9D8B4;
   animation:easter-pop .55s cubic-bezier(.2,1.6,.4,1)
 }
-#easter-six-seven .cat{width:150px;height:150px;margin:0 auto 10px;
-  animation:cat-bounce 1.2s ease-in-out infinite}
+#easter-six-seven .cat{width:200px;height:200px;margin:0 auto 6px}
+#easter-six-seven .cat svg{width:100%;height:100%;display:block}
 #easter-six-seven h2{margin:6px 0 4px;font-size:44px;color:#2A2622;letter-spacing:2px}
 #easter-six-seven p{margin:0;font-size:16px;color:#5E5447}
 @keyframes easter-pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
@@ -11263,26 +11263,164 @@ if (typeof document !== "undefined") (() => {
 <div id="easter-six-seven" role="dialog" aria-hidden="true">
   <div class="card">
     <div class="cat" aria-hidden="true">
-      <svg viewBox="0 0 200 200" width="150" height="150">
-        <ellipse cx="100" cy="135" rx="62" ry="45" fill="#F7A84B"/>
-        <ellipse cx="100" cy="135" rx="62" ry="45" fill="none" stroke="#2A2622" stroke-width="4"/>
-        <circle cx="64" cy="132" r="26" fill="#F7A84B" stroke="#2A2622" stroke-width="4"/>
-        <circle cx="136" cy="132" r="26" fill="#F7A84B" stroke="#2A2622" stroke-width="4"/>
-        <polygon points="54,118 38,88 74,110" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="146,118 162,88 126,110" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="34,92 40,92 20,60" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="166,92 160,92 180,60" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="34,78 52,84 34,88" fill="#EF7A7A" stroke="none"/>
-        <polygon points="166,78 148,84 166,88" fill="#EF7A7A" stroke="none"/>
-        <circle cx="82" cy="140" r="6" fill="#2A2622"/>
-        <circle cx="118" cy="140" r="6" fill="#2A2622"/>
-        <circle cx="86" cy="138" r="2" fill="#fff"/>
-        <circle cx="122" cy="138" r="2" fill="#fff"/>
-        <ellipse cx="100" cy="158" rx="12" ry="9" fill="#2A2622"/>
-        <path d="M88 158 Q100 152 112 158" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
-        <path d="M100 148 L96 152 L104 152 Z" fill="#2A2622"/>
-        <path d="M70 160 Q52 168 40 160" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
-        <path d="M130 160 Q148 168 160 160" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
+<svg id="catScene" class="cat67-scene cat67-no-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="catTitle catDescription" width="100%" height="100%">
+        <title id="catTitle">Мультяшный кот делает движение six-seven</title>
+        <desc id="catDescription">Рыжий кот по очереди поднимает и опускает открытые лапы с цифрами шесть и семь рядом.</desc>
+        <style>
+          .cat67-scene { --tempo: 1.05s; }
+          .cat67-scene .cat67-animated { transform-box: view-box; }
+          .cat67-scene .cat67-bob {
+            transform-origin: 240px 390px;
+            animation: cat67-bob calc(var(--tempo) * 2) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-tail {
+            transform-origin: 308px 334px;
+            animation: cat67-tail-wag calc(var(--tempo) * 1.4) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-head {
+            transform-origin: 240px 218px;
+            animation: cat67-head-groove calc(var(--tempo) * 2) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-arm-left {
+            transform-origin: 184px 252px;
+            animation: cat67-left-six-seven var(--tempo) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-arm-right {
+            transform-origin: 296px 252px;
+            animation: cat67-right-six-seven var(--tempo) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-number-left {
+            transform-origin: 102px 226px;
+            animation: cat67-number-six var(--tempo) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-number-right {
+            transform-origin: 378px 226px;
+            animation: cat67-number-seven var(--tempo) ease-in-out infinite;
+          }
+          .cat67-scene .cat67-spark-one { animation: cat67-spark calc(var(--tempo) * 2) ease-in-out infinite; }
+          .cat67-scene .cat67-spark-two { animation: cat67-spark calc(var(--tempo) * 2) ease-in-out infinite reverse; }
+          .cat67-scene.cat67-is-paused .cat67-animated { animation-play-state: paused; }
+          .cat67-scene.cat67-no-bg .cat67-background { display: none; }
+
+          @keyframes cat67-left-six-seven {
+            0%, 100% { transform: translateY(12px) rotate(-8deg); }
+            50% { transform: translateY(-17px) rotate(10deg); }
+          }
+          @keyframes cat67-right-six-seven {
+            0%, 100% { transform: translateY(-17px) rotate(-10deg); }
+            50% { transform: translateY(12px) rotate(8deg); }
+          }
+          @keyframes cat67-number-six {
+            0%, 100% { transform: translateY(7px) rotate(-5deg); opacity: .62; }
+            50% { transform: translateY(-10px) rotate(4deg); opacity: 1; }
+          }
+          @keyframes cat67-number-seven {
+            0%, 100% { transform: translateY(-10px) rotate(-4deg); opacity: 1; }
+            50% { transform: translateY(7px) rotate(5deg); opacity: .62; }
+          }
+          @keyframes cat67-bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+          }
+          @keyframes cat67-head-groove {
+            0%, 100% { transform: rotate(-1.5deg); }
+            50% { transform: rotate(1.5deg); }
+          }
+          @keyframes cat67-tail-wag {
+            0%, 100% { transform: rotate(-7deg); }
+            50% { transform: rotate(9deg); }
+          }
+          @keyframes cat67-spark {
+            0%, 100% { opacity: .25; transform: scale(.8); }
+            50% { opacity: .85; transform: scale(1.12); }
+          }
+        </style>
+
+        <defs>
+          <g id="pawShape">
+            <path d="M8 29 C0 20 2 8 13 7 C10 -4 23 -8 30 2 C35 -8 48 -5 48 7 C59 2 68 12 61 24 C56 37 43 45 28 43 C19 42 13 37 8 29 Z" fill="#F5A052" stroke="#513A38" stroke-width="5" stroke-linejoin="round"/>
+            <ellipse cx="34" cy="28" rx="12" ry="9" fill="#F8B0A8"/>
+            <ellipse cx="18" cy="15" rx="4" ry="5" fill="#F8B0A8" transform="rotate(-25 18 15)"/>
+            <ellipse cx="32" cy="9" rx="4" ry="5" fill="#F8B0A8"/>
+            <ellipse cx="47" cy="15" rx="4" ry="5" fill="#F8B0A8" transform="rotate(25 47 15)"/>
+          </g>
+        </defs>
+
+        <g class="cat67-background">
+          <rect x="16" y="16" width="448" height="448" rx="58" fill="#EDF6FF"/>
+          <circle cx="73" cy="96" r="25" fill="#DCEEFF"/>
+          <circle cx="410" cy="128" r="16" fill="#FFE5C7"/>
+          <circle cx="83" cy="353" r="13" fill="#FFE5C7"/>
+          <path d="M387 71 L391 82 L402 86 L391 90 L387 101 L383 90 L372 86 L383 82 Z" fill="#F5B94C" opacity=".7"/>
+          <path d="M92 184 L95 192 L103 195 L95 198 L92 206 L89 198 L81 195 L89 192 Z" fill="#8AA9E8" opacity=".65"/>
+          <ellipse cx="240" cy="405" rx="145" ry="22" fill="#C8D9EC" opacity=".58"/>
+        </g>
+
+        <g class="cat67-bob cat67-animated">
+          <g class="cat67-tail cat67-animated">
+            <path d="M300 337 C365 365 409 331 391 289 C382 267 355 263 346 283" fill="none" stroke="#513A38" stroke-width="35" stroke-linecap="round"/>
+            <path d="M300 337 C365 365 409 331 391 289 C382 267 355 263 346 283" fill="none" stroke="#E98C42" stroke-width="25" stroke-linecap="round"/>
+            <path d="M390 289 C382 269 357 265 347 282" fill="none" stroke="#FFC477" stroke-width="25" stroke-linecap="round"/>
+          </g>
+
+          <g class="cat67-spark-one cat67-animated" transform-origin="64 256">
+            <path d="M64 244 L68 252 L76 256 L68 260 L64 268 L60 260 L52 256 L60 252 Z" fill="#F2B544"/>
+          </g>
+          <g class="cat67-spark-two cat67-animated" transform-origin="420 230">
+            <path d="M420 220 L423 227 L430 230 L423 233 L420 240 L417 233 L410 230 L417 227 Z" fill="#829FDB"/>
+          </g>
+
+          <ellipse cx="193" cy="375" rx="48" ry="29" fill="#F5A052" stroke="#513A38" stroke-width="5"/>
+          <ellipse cx="287" cy="375" rx="48" ry="29" fill="#F5A052" stroke="#513A38" stroke-width="5"/>
+          <path d="M174 375 L180 379 M193 374 L193 381 M306 375 L300 379 M287 374 L287 381" fill="none" stroke="#C9763B" stroke-width="4" stroke-linecap="round"/>
+
+          <path d="M177 267 C177 225 201 204 240 204 C279 204 303 225 303 267 L311 337 C315 374 284 393 240 393 C196 393 165 374 169 337 Z" fill="#F5A052" stroke="#513A38" stroke-width="5" stroke-linejoin="round"/>
+          <ellipse cx="240" cy="310" rx="53" ry="70" fill="#FFF0D5"/>
+          <path d="M179 278 L193 286 M176 297 L191 302 M301 278 L287 286 M304 297 L289 302" fill="none" stroke="#C9763B" stroke-width="6" stroke-linecap="round"/>
+
+          <g class="cat67-arm-left cat67-animated">
+            <path d="M184 252 C163 258 150 277 138 288" fill="none" stroke="#513A38" stroke-width="39" stroke-linecap="round"/>
+            <path d="M184 252 C163 258 150 277 138 288" fill="none" stroke="#F5A052" stroke-width="29" stroke-linecap="round"/>
+            <use href="#pawShape" transform="translate(100 270) rotate(-8 30 20)"/>
+          </g>
+
+          <g class="cat67-arm-right cat67-animated">
+            <path d="M296 252 C317 258 330 277 342 288" fill="none" stroke="#513A38" stroke-width="39" stroke-linecap="round"/>
+            <path d="M296 252 C317 258 330 277 342 288" fill="none" stroke="#F5A052" stroke-width="29" stroke-linecap="round"/>
+            <use href="#pawShape" transform="translate(380 270) scale(-1 1) rotate(-8 30 20)"/>
+          </g>
+
+          <g class="cat67-head cat67-animated">
+            <path d="M158 126 L147 59 Q145 43 160 50 L213 81 Z" fill="#F5A052" stroke="#513A38" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M322 126 L333 59 Q335 43 320 50 L267 81 Z" fill="#F5A052" stroke="#513A38" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M161 103 L157 67 L190 86 Z" fill="#F8B0A8"/>
+            <path d="M319 103 L323 67 L290 86 Z" fill="#F8B0A8"/>
+
+            <path d="M136 143 C136 92 176 67 240 67 C304 67 344 92 344 143 L344 158 C344 205 300 230 240 230 C180 230 136 205 136 158 Z" fill="#F5A052" stroke="#513A38" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M139 166 C153 205 190 226 240 226 C290 226 327 205 341 166 C323 177 307 180 292 181 C276 202 259 210 240 210 C221 210 204 202 188 181 C173 180 157 177 139 166 Z" fill="#FFF0D5" opacity=".96"/>
+            <path d="M220 75 L225 95 M240 71 L240 94 M260 75 L255 95" fill="none" stroke="#C9763B" stroke-width="6" stroke-linecap="round"/>
+
+            <ellipse cx="198" cy="145" rx="12" ry="16" fill="#513A38"/>
+            <ellipse cx="282" cy="145" rx="12" ry="16" fill="#513A38"/>
+            <circle cx="202" cy="139" r="4" fill="#FFFFFF"/>
+            <circle cx="286" cy="139" r="4" fill="#FFFFFF"/>
+            <circle cx="173" cy="173" r="13" fill="#F48E91" opacity=".35"/>
+            <circle cx="307" cy="173" r="13" fill="#F48E91" opacity=".35"/>
+
+            <path d="M231 163 Q240 157 249 163 Q247 174 240 175 Q233 174 231 163 Z" fill="#E98186" stroke="#513A38" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M240 175 C238 188 223 190 218 180 M240 175 C242 188 257 190 262 180" fill="none" stroke="#513A38" stroke-width="4" stroke-linecap="round"/>
+            <path d="M174 168 L119 157 M173 179 L114 180 M177 189 L127 204 M306 168 L361 157 M307 179 L366 180 M303 189 L353 204" fill="none" stroke="#513A38" stroke-width="4" stroke-linecap="round"/>
+          </g>
+
+          <g class="cat67-number-left cat67-animated">
+            <circle cx="102" cy="226" r="25" fill="#FFFFFF" stroke="#718BD0" stroke-width="4"/>
+            <text x="102" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#536CB5">6</text>
+          </g>
+          <g class="cat67-number-right cat67-animated">
+            <circle cx="378" cy="226" r="25" fill="#FFFFFF" stroke="#E3A43C" stroke-width="4"/>
+            <text x="378" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#C98726">7</text>
+          </g>
+        </g>
       </svg>
     </div>
     <h2>six-seven</h2>
