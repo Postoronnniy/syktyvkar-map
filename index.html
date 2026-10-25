@@ -157,6 +157,23 @@ footer a{color:inherit}
   .sheet-close{width:28px}
 }
 /* navigation:end */
+#easter-six-seven{
+  position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  pointer-events:none;background:rgba(42,38,34,.25)
+}
+#easter-six-seven.show{display:flex;animation:easter-fade 3.2s ease forwards}
+#easter-six-seven .card{
+  background:#FFFDF8;border-radius:24px;padding:34px 44px;text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,.4);border:3px solid #E9D8B4;
+  animation:easter-pop .55s cubic-bezier(.2,1.6,.4,1)
+}
+#easter-six-seven .cat{width:150px;height:150px;margin:0 auto 10px;
+  animation:cat-bounce 1.2s ease-in-out infinite}
+#easter-six-seven h2{margin:6px 0 4px;font-size:44px;color:#2A2622;letter-spacing:2px}
+#easter-six-seven p{margin:0;font-size:16px;color:#5E5447}
+@keyframes easter-pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes easter-fade{0%{opacity:0}15%{opacity:1}80%{opacity:1}100%{opacity:0}}
+@keyframes cat-bounce{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(3deg)}}
 </style>
 </head>
 <body>
@@ -3413,6 +3430,7 @@ footer a{color:inherit}
 <path d="M779.9 1294.2L788.1 1291.3L791.2 1299.9L783 1302.8Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
 <path d="M748.8 1484.8L758.6 1483.3L759.8 1491.8L750 1493.3Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
 <path d="M774.3 1507.5L792 1505.5L794.9 1532L777.2 1534Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
+<path d="M774.3 1507.5L792 1505.5L794.9 1532L777.2 1534Z" fill="transparent" stroke="none" pointer-events="all" id="easter-house-67" style="cursor:pointer"/>
 <path d="M768 1443.9L773.5 1492.2L789.3 1490.4L783.8 1442.1Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
 <path d="M933.4 1352.5L941.4 1410.4L943.5 1410.2L944.9 1420.2L1056.6 1404.7L1055.3 1395.7L1057.7 1395.4L1052.3 1356.2L1042.1 1357.6L1047.4 1395.7L952.5 1408.9L944.4 1351Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
 <path d="M902.8 1619.6L921 1617.2L921.5 1620.6L940.1 1618.1L940.4 1621L960.6 1618.2L958.8 1604.9L939.9 1607.5L939.6 1605.1L919.9 1607.8L919.6 1605.6L901.2 1608Z" fill="none" stroke="#8F7C60" stroke-width="2" stroke-linejoin="round"/>
@@ -11241,6 +11259,66 @@ if (typeof document !== "undefined") (() => {
     if (document.readyState === "complete") openPlace();
     else addEventListener("load", openPlace, {once: true});
   }
+})();
+</script>
+<div id="easter-six-seven" role="dialog" aria-hidden="true">
+  <div class="card">
+    <div class="cat" aria-hidden="true">
+      <svg viewBox="0 0 200 200" width="150" height="150">
+        <ellipse cx="100" cy="135" rx="62" ry="45" fill="#F7A84B"/>
+        <ellipse cx="100" cy="135" rx="62" ry="45" fill="none" stroke="#2A2622" stroke-width="4"/>
+        <circle cx="64" cy="132" r="26" fill="#F7A84B" stroke="#2A2622" stroke-width="4"/>
+        <circle cx="136" cy="132" r="26" fill="#F7A84B" stroke="#2A2622" stroke-width="4"/>
+        <polygon points="54,118 38,88 74,110" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="146,118 162,88 126,110" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="34,92 40,92 20,60" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="166,92 160,92 180,60" fill="#F7A84B" stroke="#2A2622" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="34,78 52,84 34,88" fill="#EF7A7A" stroke="none"/>
+        <polygon points="166,78 148,84 166,88" fill="#EF7A7A" stroke="none"/>
+        <circle cx="82" cy="140" r="6" fill="#2A2622"/>
+        <circle cx="118" cy="140" r="6" fill="#2A2622"/>
+        <circle cx="86" cy="138" r="2" fill="#fff"/>
+        <circle cx="122" cy="138" r="2" fill="#fff"/>
+        <ellipse cx="100" cy="158" rx="12" ry="9" fill="#2A2622"/>
+        <path d="M88 158 Q100 152 112 158" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 148 L96 152 L104 152 Z" fill="#2A2622"/>
+        <path d="M70 160 Q52 168 40 160" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
+        <path d="M130 160 Q148 168 160 160" fill="none" stroke="#2A2622" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2>six-seven</h2>
+    <p>Котик говорит: 67! 🐾</p>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var el = document.getElementById("easter-house-67");
+  var overlay = document.getElementById("easter-six-seven");
+  if (!el || !overlay) return;
+  var svg = document.getElementById("map-svg");
+  if (!svg) return;
+  var fullW = svg.viewBox.baseVal.width;
+  var clicks = 0, timer = null;
+  function close(){ overlay.classList.remove("show"); overlay.setAttribute("aria-hidden","true"); }
+  function fire(){
+    overlay.setAttribute("aria-hidden","false");
+    overlay.classList.add("show");
+    clearTimeout(timer);
+    timer = setTimeout(close, 3200);
+  }
+  el.addEventListener("click", function(ev){
+    ev.stopPropagation();
+    var vb = svg.viewBox.baseVal;
+    var zoomedOut = fullW > 0 && vb.width < fullW * 0.35;  // приближено хотя бы в ~3 раза
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(function(){ clicks = 0; }, 1200);
+    if (clicks >= 5 && zoomedOut) {
+      clicks = 0;
+      fire();
+    }
+  });
 })();
 </script>
 </body>
