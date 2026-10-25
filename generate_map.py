@@ -51,6 +51,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from web_navigation import NAVIGATION_HELP, navigation_css, navigation_script, enhance_page
+
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 # ─────────────────────────────── пути ───────────────────────────────
@@ -63,7 +65,7 @@ BUILDINGS_RAW = ROOT / "geo" / "syktyvkar_buildings_raw.json"
 OUT_SVG = ROOT / "syktyvkar_map.svg"
 OUT_PNG = ROOT / "syktyvkar_map.png"
 OUT_LEGEND = ROOT / "attractions_legend.png"
-OUT_HTML = ROOT / "index.html"
+OUT_HTML = ROOT / "index_tz.html"
 OUT_PDF = ROOT / "syktyvkar_map.pdf"
 BOOKLET_PDF = ROOT / "syktyvkar_booklet.pdf"  # положите сюда свёрстанный буклет — кнопка поведёт на него
 
@@ -287,7 +289,7 @@ STYLES: dict[str, dict] = {
         "OUT_PNG": ROOT / "syktyvkar_map_ref.png",
         "OUT_PDF": ROOT / "syktyvkar_map_ref.pdf",
         "OUT_LEGEND": ROOT / "attractions_legend_ref.png",
-        "OUT_HTML": ROOT / "index_ref.html",
+        "OUT_HTML": ROOT / "index.html",
     },
 }
 _STYLE_BASE = {k: globals()[k] for s in STYLES.values() for k in s}
@@ -1609,8 +1611,8 @@ def render_svg(sc: Scene, typo: Typo, web: bool = False) -> str:
     out.append(layer("streets", "Улицы", st, web))
     out.append(districts_layer)
 
-    # Якорь «значков» точки — её истинное место: маркер, подпись и рисунок при зуме в HTML
-    # масштабируются вокруг него вместе, как одно целое.
+    # Якорь — истинное место объекта. HTML использует эти координаты для маркеров
+    # и независимо перемещаемых рисунков с динамическими выносками.
     anchors = {a["id"]: a["true_xy"] for a in data}
 
     if sc.illustrations:
@@ -2127,6 +2129,7 @@ footer a{color:inherit}
   .yah-pulse{animation:none;opacity:.3}
   *,*::before,*::after{transition:none!important;animation-duration:0s!important;scroll-behavior:auto!important}
 }
+__MAP_CSS__
 </style>
 </head>
 <body>
@@ -2147,6 +2150,7 @@ footer a{color:inherit}
   <aside class="list-pane" aria-labelledby="list-title">
     <h2 id="list-title">Достопримечательности</h2>
     <p class="hint">Нажмите на точку на карте или на карточку — карта приблизится к месту.</p>
+    __NAVIGATION_HELP__
     <ol class="cards">
 __CARDS__
     </ol>
@@ -2156,194 +2160,7 @@ __CARDS__
 <p class="sr-only" aria-live="polite" id="announce"></p>
 <script type="application/json" id="attractions-data">__JSON__</script>
 <script>
-(() => {
-  "use strict";
-  const svg = document.getElementById("map-svg");
-  if (!svg) return;
-  const pane = document.getElementById("map");
-  const FULL = {x: 0, y: 0, w: __PAGE_W__, h: __PAGE_H__};
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const data = JSON.parse(document.getElementById("attractions-data").textContent);
-  const byId = new Map(data.map(a => [String(a.id), a]));
-  const markers = new Map(), cards = new Map();
-  svg.querySelectorAll(".marker").forEach(g => markers.set(g.dataset.id, g));
-  document.querySelectorAll(".card").forEach(c => cards.set(c.dataset.id, c));
-  const announce = document.getElementById("announce");
-  let vb = {...FULL}, anim = 0, active = null;
-
-  const clamp = v => {
-    const w = Math.min(Math.max(v.w, FULL.w / 10), FULL.w), h = w * FULL.h / FULL.w;
-    return {x: Math.min(Math.max(v.x, 0), FULL.w - w), y: Math.min(Math.max(v.y, 0), FULL.h - h), w, h};
-  };
-  const scale = () => { const r = svg.getBoundingClientRect(); return Math.min(r.width / vb.w, r.height / vb.h) || 1; };
-  // Значки, рисунки и подписи растут вместе с картой, пока подпись не станет читаемой
-  // (SYM_PX экранных px на единицу SVG), дальше их размер на экране не меняется —
-  // при зуме «раздвигается» только карта. Каждая группа .sym масштабируется вокруг своего якоря.
-  const SYM_PX = __SYM_PX__, PX_PER_M = __PX_PER_M__;
-  const syms = [...svg.querySelectorAll(".sym")].map(g => ({g, ax: +g.dataset.ax, ay: +g.dataset.ay}));
-  const dynScale = document.getElementById("dyn-scale");
-  let symK = 1;
-  function updateSymbols(k) {
-    const f = Math.min(1, SYM_PX / k);
-    if (f === 1 && symK === 1) return;
-    symK = f;
-    for (const s of syms) {
-      if (f === 1) s.g.removeAttribute("transform");
-      else s.g.setAttribute("transform", `translate(${s.ax} ${s.ay}) scale(${f.toFixed(4)}) translate(${-s.ax} ${-s.ay})`);
-    }
-  }
-  function updateScaleBar(k) {  // живая линейка масштаба вместо печатной, которая при зуме скрыта
-    const pxPerM = PX_PER_M * k;
-    let d = 20;
-    for (const n of [20, 50, 100, 200, 300, 500, 1000, 2000]) if (n * pxPerM <= 130) d = n;
-    dynScale.querySelector("i").style.width = `${(d * pxPerM).toFixed(0)}px`;
-    dynScale.querySelector("span").textContent = d >= 1000 ? `${d / 1000} км` : `${d} м`;
-  }
-  function sizeHits(k) {  // зона нажатия маркера — не меньше 44×44 px на экране
-    const r = Math.max(44, 22 / (k * symK));
-    svg.querySelectorAll(".hit").forEach(c => c.setAttribute("r", r.toFixed(1)));
-  }
-  function apply(v) {
-    vb = v;
-    svg.setAttribute("viewBox", `${v.x.toFixed(1)} ${v.y.toFixed(1)} ${v.w.toFixed(1)} ${v.h.toFixed(1)}`);
-    const zoomed = v.w < FULL.w - 1;
-    svg.classList.toggle("is-zoomed", zoomed);
-    pane.classList.toggle("is-zoomed", zoomed);
-    const k = scale();
-    updateSymbols(k);
-    updateScaleBar(k);
-    sizeHits(k);
-  }
-  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  function animateTo(target, ms = 600) {
-    const t = clamp(target);
-    cancelAnimationFrame(anim);
-    if (reduce) return apply(t);
-    const s = {...vb}, t0 = performance.now();
-    const step = now => {
-      const k = Math.min(1, (now - t0) / ms), e = ease(k);
-      apply({x: s.x + (t.x - s.x) * e, y: s.y + (t.y - s.y) * e, w: s.w + (t.w - s.w) * e, h: s.h + (t.h - s.h) * e});
-      if (k < 1) anim = requestAnimationFrame(step);
-    };
-    anim = requestAnimationFrame(step);
-  }
-  const zoomAround = (px, py, f) =>
-    animateTo({x: px - (px - vb.x) / f, y: py - (py - vb.y) / f, w: vb.w / f, h: vb.h / f}, 350);
-  const focusOn = (x, y, z = 3) => { const w = FULL.w / z, h = FULL.h / z; animateTo({x: x - w / 2, y: y - h / 2, w, h}); };
-  function toSvg(cx, cy) {
-    const p = svg.createSVGPoint(); p.x = cx; p.y = cy;
-    return p.matrixTransform(svg.getScreenCTM().inverse());
-  }
-  // где маркер сейчас: его группа отмасштабирована вокруг якоря (истинной точки)
-  const markerAt = g => {
-    const ax = +g.dataset.ax, ay = +g.dataset.ay;
-    return [ax + (+g.dataset.x - ax) * symK, ay + (+g.dataset.y - ay) * symK];
-  };
-  function nearest(p) {  // ближайший маркер в пределах зоны нажатия — работает и при перекрытии зон
-    let best = null, bd = Infinity;
-    markers.forEach((g, id) => {
-      const [x, y] = markerAt(g), d = Math.hypot(x - p.x, y - p.y);
-      if (d < bd) { bd = d; best = id; }
-    });
-    return bd <= Math.max(48 * symK, 26 / scale()) ? best : null;
-  }
-  function select(id, from) {
-    if (active) { markers.get(active)?.classList.remove("is-active"); cards.get(active)?.classList.remove("is-active"); }
-    active = id;
-    const g = markers.get(id), c = cards.get(id);
-    if (!g || !c) return;
-    g.classList.add("is-active"); c.classList.add("is-active");
-    g.parentNode.appendChild(g);  // поднять над соседями
-    const a = byId.get(id);
-    if (a) announce.textContent = `Выбрано: ${a.id}. ${a.name}, ${a.category}`;
-    if (from === "map") {
-      c.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
-      c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash");
-    } else {
-      const r = pane.getBoundingClientRect();
-      if (r.bottom < 120 || r.top > innerHeight - 120) pane.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
-      focusOn(+g.dataset.ax, +g.dataset.ay);
-    }
-    history.replaceState(null, "", "#p" + id);
-  }
-
-  // клики и тапы по карте
-  let drag = null, moved = false;
-  const ptrs = new Map();
-  svg.addEventListener("pointerdown", e => {
-    ptrs.set(e.pointerId, {x: e.clientX, y: e.clientY});
-    if (ptrs.size === 1) { drag = {x: e.clientX, y: e.clientY, vb: {...vb}}; moved = false; }
-    else if (ptrs.size === 2) {
-      const [a, b] = [...ptrs.values()];
-      drag = {pinch: Math.hypot(a.x - b.x, a.y - b.y), vb: {...vb}, mid: toSvg((a.x + b.x) / 2, (a.y + b.y) / 2)};
-      moved = true;
-    }
-  });
-  svg.addEventListener("pointermove", e => {
-    if (!ptrs.has(e.pointerId) || !drag) return;
-    ptrs.set(e.pointerId, {x: e.clientX, y: e.clientY});
-    if (drag.pinch && ptrs.size === 2) {
-      const [a, b] = [...ptrs.values()], f = Math.hypot(a.x - b.x, a.y - b.y) / drag.pinch, m = drag.mid;
-      cancelAnimationFrame(anim);
-      apply(clamp({x: m.x - (m.x - drag.vb.x) / f, y: m.y - (m.y - drag.vb.y) / f, w: drag.vb.w / f, h: drag.vb.h / f}));
-      return;
-    }
-    if (vb.w >= FULL.w - 1 && e.pointerType === "touch") return;  // не приближено — пусть скроллится страница
-    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (!moved && Math.hypot(dx, dy) < 6) return;
-    if (!moved) { moved = true; svg.setPointerCapture(e.pointerId); svg.classList.add("is-dragging"); }
-    const k = scale();
-    cancelAnimationFrame(anim);
-    apply(clamp({...drag.vb, x: drag.vb.x - dx / k, y: drag.vb.y - dy / k}));
-  });
-  const up = e => {
-    ptrs.delete(e.pointerId);
-    if (!ptrs.size) { drag = null; svg.classList.remove("is-dragging"); }
-  };
-  svg.addEventListener("pointerup", up);
-  svg.addEventListener("pointercancel", up);
-  svg.addEventListener("click", e => {
-    if (moved) { moved = false; return; }
-    const ill = e.target.closest(".illu");  // клик по рисунку объекта — как по его номеру
-    if (ill) return select(ill.dataset.id, "map");
-    const p = toSvg(e.clientX, e.clientY), id = nearest(p);
-    if (id) select(id, "map");
-  });
-  svg.querySelectorAll(".illu").forEach(g => {
-    const id = g.dataset.id;
-    g.addEventListener("pointerenter", () => { markers.get(id)?.classList.add("is-hover"); cards.get(id)?.classList.add("is-hover"); });
-    g.addEventListener("pointerleave", () => { markers.get(id)?.classList.remove("is-hover"); cards.get(id)?.classList.remove("is-hover"); });
-  });
-  svg.addEventListener("dblclick", e => { const p = toSvg(e.clientX, e.clientY); zoomAround(p.x, p.y, 2); });
-  svg.addEventListener("wheel", e => {
-    e.preventDefault();
-    const p = toSvg(e.clientX, e.clientY);
-    const f = Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0025));
-    cancelAnimationFrame(anim);
-    apply(clamp({x: p.x - (p.x - vb.x) / f, y: p.y - (p.y - vb.y) / f, w: vb.w / f, h: vb.h / f}));
-  }, {passive: false});
-  markers.forEach((g, id) => {
-    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(id, "map"); } });
-    g.addEventListener("pointerenter", () => cards.get(id)?.classList.add("is-hover"));
-    g.addEventListener("pointerleave", () => cards.get(id)?.classList.remove("is-hover"));
-  });
-  cards.forEach((c, id) => {
-    c.querySelector(".card-hit").addEventListener("click", () => select(id, "list"));
-    c.addEventListener("pointerenter", () => markers.get(id)?.classList.add("is-hover"));
-    c.addEventListener("pointerleave", () => markers.get(id)?.classList.remove("is-hover"));
-  });
-  document.querySelectorAll("[data-zoom]").forEach(b => b.addEventListener("click", () => {
-    const cx = vb.x + vb.w / 2, cy = vb.y + vb.h / 2;
-    if (b.dataset.zoom === "in") zoomAround(cx, cy, 1.6);
-    else if (b.dataset.zoom === "out") zoomAround(cx, cy, 1 / 1.6);
-    else animateTo(FULL);
-  }));
-  document.addEventListener("keydown", e => { if (e.key === "Escape") animateTo(FULL); });
-  addEventListener("resize", () => apply(vb));
-  apply(vb);
-  const m = location.hash.match(/^#p(\d+)$/);
-  if (m && markers.has(m[1])) select(m[1], "list");
-})();
+__MAP_JS__
 </script>
 </body>
 </html>
@@ -2388,6 +2205,9 @@ def render_html(sc: Scene, svg_web: str, photos: dict, pdf_href: str | None) -> 
     og_image = f"{SITE_URL}{OUT_PNG.name}"
     og_url = f'<meta property="og:url" content="{html.escape(SITE_URL)}">\n' if SITE_URL else ""
     rep = {
+        "__MAP_JS__": navigation_script(WEB_SYMBOL_MAX_SCALE, sc.proj.scale),
+        "__MAP_CSS__": navigation_css(),
+        "__NAVIGATION_HELP__": NAVIGATION_HELP,
         "__TITLE__": html.escape(f"{city} · {subtitle} — {len(data)} достопримечательностей"),
         "__OG_TITLE__": html.escape(f"{city} · {subtitle}"),
         "__DESCRIPTION__": html.escape(descr),
@@ -2408,7 +2228,7 @@ def render_html(sc: Scene, svg_web: str, photos: dict, pdf_href: str | None) -> 
     out = HTML_TEMPLATE
     for k, v in rep.items():
         out = out.replace(k, v)
-    return out
+    return enhance_page(out)
 
 
 # ═══════════════════════════════ самопроверка ═══════════════════════════════
